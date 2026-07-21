@@ -20,7 +20,7 @@ importers:
 
   apps/docs:
     dependencies:
-      sharkui:
+      '@marcgm/sharkui':
         specifier: workspace:*
         version: link:../../packages/ui
     devDependencies:

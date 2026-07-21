@@ -7,7 +7,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "sharkui": "workspace:*"
+    "@marcgm/sharkui": "workspace:*"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",

@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MarcGonzalezMoratona/sharkui/main/assets/branding/logo-npm.png" alt="sharkui" width="96" height="96" />
+  <img src="https://raw.githubusercontent.com/MarcGonzalezMoratona/sharkui/main/assets/branding/logo-npm.png" alt="Shark UI" width="96" height="96" />
 </p>
 
 <h1 align="center">Shark UI</h1>
 
-[![npm version](https://img.shields.io/npm/v/sharkui.svg)](https://www.npmjs.com/package/sharkui)
-[![license](https://img.shields.io/npm/l/sharkui.svg)](https://github.com/MarcGonzalezMoratona/sharkui/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@marcgm/sharkui.svg)](https://www.npmjs.com/package/@marcgm/sharkui)
+[![license](https://img.shields.io/npm/l/@marcgm/sharkui.svg)](https://github.com/MarcGonzalezMoratona/sharkui/blob/main/LICENSE)
 
 A React design system built on [shadcn-ui](https://ui.shadcn.com/) (Base UI + Tailwind CSS v4).
 
 ## Install
 
 ```bash
-npm install sharkui
+npm install @marcgm/sharkui
 ```
 
 `react` and `react-dom` are peer dependencies (`^18 || ^19`).
@@ -22,15 +22,15 @@ npm install sharkui
 Import the stylesheet once at the root of your app, then use the components:
 
 ```tsx
-import "sharkui/styles.css";
-import { Button } from "sharkui";
+import "@marcgm/sharkui/styles.css";
+import { Button } from "@marcgm/sharkui";
 
 export function App() {
   return <Button variant="secondary">Click me</Button>;
 }
 ```
 
-> The `sharkui/styles.css` import is handled by your bundler (Vite, Next.js, etc.).
+> The `@marcgm/sharkui/styles.css` import is handled by your bundler (Vite, Next.js, etc.).
 
 ## Components
 

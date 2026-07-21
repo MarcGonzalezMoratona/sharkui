@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/branding/icon-filled-alt.svg">
-    <img alt="sharkui" src="assets/branding/icon-filled.svg" width="96" height="96">
+    <img alt="Shark UI" src="assets/branding/icon-filled.svg" width="96" height="96">
   </picture>
 </p>
 
@@ -12,19 +12,19 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/sharkui"><img src="https://img.shields.io/npm/v/sharkui.svg" alt="npm version"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/npm/l/sharkui.svg" alt="license"></a>
+  <a href="https://www.npmjs.com/package/@marcgm/sharkui"><img src="https://img.shields.io/npm/v/@marcgm/sharkui.svg" alt="npm version"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/npm/l/@marcgm/sharkui.svg" alt="license"></a>
 </p>
 
 ## Install
 
 ```bash
-npm install sharkui
+npm install @marcgm/sharkui
 ```
 
 ```tsx
-import "sharkui/styles.css";
-import { Button } from "sharkui";
+import "@marcgm/sharkui/styles.css";
+import { Button } from "@marcgm/sharkui";
 
 export function App() {
   return <Button variant="secondary">Click me</Button>;
@@ -39,7 +39,7 @@ Interactive component explorer built with Storybook, deployed on Vercel:
 ## Monorepo
 
 ```
-packages/ui     → the published library (npm: sharkui)
+packages/ui     → the published library (npm: @marcgm/sharkui)
 apps/docs       → Storybook (component docs, deployed to Vercel)
 assets/branding → logo source files (SVG + rendered PNG)
 ```

@@ -1,7 +1,10 @@
 {
-  "name": "sharkui",
+  "name": "@marcgm/sharkui",
   "version": "0.0.0",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "A React design system built on shadcn-ui (Base UI + Tailwind CSS v4)",
   "license": "MIT",
   "author": "Marc González Moratona",
