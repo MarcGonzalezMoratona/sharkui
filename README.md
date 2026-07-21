@@ -1,32 +1,61 @@
-# React + TypeScript + Vite
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/branding/icon-filled-alt.svg">
+    <img alt="sharkui" src="assets/branding/icon-filled.svg" width="96" height="96">
+  </picture>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<h1 align="center">Shark UI</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+  A React design system built on <a href="https://ui.shadcn.com/">shadcn-ui</a> — Base UI + Tailwind CSS v4.
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<p align="center">
+  <a href="https://www.npmjs.com/package/sharkui"><img src="https://img.shields.io/npm/v/sharkui.svg" alt="npm version"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/npm/l/sharkui.svg" alt="license"></a>
+</p>
 
-## React Compiler
+## Install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install sharkui
+```
 
-## Expanding the Oxlint configuration
+```tsx
+import "sharkui/styles.css";
+import { Button } from "sharkui";
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
+export function App() {
+  return <Button variant="secondary">Click me</Button>;
 }
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Documentation
+
+Interactive component explorer built with Storybook, deployed on Vercel:
+**https://sharkui.vercel.app** _(live once deployed)_.
+
+## Monorepo
+
+```
+packages/ui     → the published library (npm: sharkui)
+apps/docs       → Storybook (component docs, deployed to Vercel)
+assets/branding → logo source files (SVG + rendered PNG)
+```
+
+Built with pnpm workspaces.
+
+```bash
+pnpm install        # install all workspaces
+pnpm dev            # run Storybook locally
+pnpm -r build       # build every package
+```
+
+## Tech stack
+
+React 19 · TypeScript · Tailwind CSS v4 · Base UI · shadcn-ui · tsup · Storybook · Vitest · pnpm
+
+## License
+
+MIT © Marc González Moratona

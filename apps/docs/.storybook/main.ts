@@ -12,5 +12,8 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
   ],
   framework: "@storybook/react-vite",
+  staticDirs: ["../public"],
+  managerHead: (head) =>
+    `${head}<link rel="icon" type="image/svg+xml" href="./favicon.svg" />`,
 };
 export default config;

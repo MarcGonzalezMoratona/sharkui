@@ -1,4 +1,8 @@
-# sharkui
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MarcGonzalezMoratona/sharkui/main/assets/branding/logo-npm.png" alt="sharkui" width="96" height="96" />
+</p>
+
+<h1 align="center">Shark UI</h1>
 
 [![npm version](https://img.shields.io/npm/v/sharkui.svg)](https://www.npmjs.com/package/sharkui)
 [![license](https://img.shields.io/npm/l/sharkui.svg)](https://github.com/MarcGonzalezMoratona/sharkui/blob/main/LICENSE)
