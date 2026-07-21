@@ -1,8 +1,16 @@
 import type { Preview } from '@storybook/react-vite'
+import { withThemeByClassName } from '@storybook/addon-themes'
 
 import '../../../packages/ui/src/styles.css'
 
 const preview: Preview = {
+  decorators: [
+    withThemeByClassName({
+      themes: { light: '', dark: 'dark' },
+      defaultTheme: 'light',
+      parentSelector: 'html',
+    }),
+  ],
   parameters: {
     controls: {
       matchers: {
