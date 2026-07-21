@@ -1,5 +1,11 @@
 # @marcgm/sharkui
 
+## 0.2.0
+
+### Minor Changes
+
+- [`6c7fc99`](https://github.com/MarcGonzalezMoratona/sharkui/commit/6c7fc993f349c86306bed052666b3fc15b681739) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add themed Toast component (`Toaster`, `toast`) built on Sonner, exported from the package barrel.
+
 ## 0.1.0
 
 ### Minor Changes
