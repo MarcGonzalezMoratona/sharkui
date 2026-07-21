@@ -12,6 +12,13 @@ const preview: Preview = {
     }),
   ],
   parameters: {
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: ['Introduction', '*'],
+      },
+    },
+
     controls: {
       matchers: {
        color: /(background|color)$/i,
