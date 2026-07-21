@@ -40,7 +40,7 @@ Also exported: `buttonVariants` (the `cva` config) and `cn` (the `clsx` + `tailw
 
 ## Documentation
 
-Component explorer and interactive docs live in Storybook — see the [repository](https://github.com/MarcGonzalezMoratona/sharkui).
+Explore every component interactively in the [live Storybook](https://sharkui.vercel.app).
 
 ## License
 

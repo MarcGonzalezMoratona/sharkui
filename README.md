@@ -34,7 +34,7 @@ export function App() {
 ## Documentation
 
 Interactive component explorer built with Storybook, deployed on Vercel:
-**https://sharkui.vercel.app** _(live once deployed)_.
+**https://sharkui.vercel.app**
 
 ## Monorepo
 
