@@ -2,10 +2,26 @@
   "name": "sharkui",
   "version": "0.0.0",
   "private": false,
-  "description": "Design system built on shadcn-ui",
+  "description": "A React design system built on shadcn-ui (Base UI + Tailwind CSS v4)",
   "license": "MIT",
   "author": "Marc González Moratona",
   "type": "module",
+  "keywords": [
+    "react",
+    "design-system",
+    "ui",
+    "components",
+    "shadcn",
+    "tailwindcss",
+    "base-ui"
+  ],
+  "homepage": "https://github.com/MarcGonzalezMoratona/sharkui#readme",
+  "bugs": "https://github.com/MarcGonzalezMoratona/sharkui/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcGonzalezMoratona/sharkui.git",
+    "directory": "packages/ui"
+  },
   "sideEffects": [
     "**/*.css"
   ],
