@@ -27,6 +27,13 @@ jobs:
           node-version: 22
           cache: pnpm
 
+      # pnpm packs and delegates the registry upload to `npm publish`, which needs
+      # npm >= 11.5.1 to perform the OIDC trusted-publishing token exchange.
+      # (pnpm 10 handles --no-git-checks itself and does not leak it to npm; the
+      # flag error only occurred with pnpm 9. pnpm 11 breaks OIDC — see pnpm#11513.)
+      - name: Upgrade npm for OIDC trusted publishing
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         env:
