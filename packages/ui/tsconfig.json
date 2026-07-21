@@ -5,6 +5,7 @@
       "@/*": ["./src/*"]
     },
     "types": [],
+    "ignoreDeprecations": "6.0",
     "tsBuildInfoFile": "./node_modules/.tmp/ui.tsbuildinfo"
   },
   "include": ["src"]
