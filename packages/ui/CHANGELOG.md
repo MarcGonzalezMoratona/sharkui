@@ -1,5 +1,16 @@
 # @marcgm/sharkui
 
+## 0.7.0
+
+### Minor Changes
+
+- [`2e9586a`](https://github.com/MarcGonzalezMoratona/sharkui/commit/2e9586abbf5f6522d2770270917f55d4a8d8cd30) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Avatar` component for displaying user images with fallbacks, status badges, and grouping.
+
+  - New `Avatar` component built on Base UI, with `AvatarImage` (falls back automatically when the image fails to load), `AvatarFallback`, `AvatarBadge` (status indicator), `AvatarGroup`, and `AvatarGroupCount` for stacked avatars.
+  - Supports `sm`, `default`, and `lg` sizes via the `size` prop.
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+  - All avatar parts are exported from the package barrel.
+
 ## 0.6.0
 
 ### Minor Changes
