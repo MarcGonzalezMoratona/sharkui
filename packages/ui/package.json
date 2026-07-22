@@ -45,6 +45,7 @@
     "build:js": "tsup",
     "build:css": "tailwindcss -i src/styles.css -o dist/styles.css --minify",
     "dev": "tsup --watch",
+    "gen:component": "node scripts/generate-component.mjs",
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
