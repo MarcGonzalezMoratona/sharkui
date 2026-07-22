@@ -73,7 +73,9 @@ describe("Card subcomponents", () => {
   it("applies the muted description color", () => {
     render(<CardDescription>Description</CardDescription>);
 
-    expect(screen.getByText("Description")).toHaveClass("text-muted-foreground");
+    expect(screen.getByText("Description")).toHaveClass(
+      "text-muted-foreground",
+    );
   });
 
   it("merges a custom className on a subcomponent", () => {

@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Checkbox } from "./checkbox";
-import { playChecked, playDefault, playDisabled, playWithLabel } from "./checkbox.play";
+import {
+  playChecked,
+  playDefault,
+  playDisabled,
+  playWithLabel,
+} from "./checkbox.play";
 import { Label } from "../label/label";
 
 const meta = {

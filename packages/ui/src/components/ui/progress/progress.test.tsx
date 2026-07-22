@@ -1,11 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import {
-  Progress,
-  ProgressLabel,
-  ProgressValue,
-} from "./progress";
+import { Progress, ProgressLabel, ProgressValue } from "./progress";
 
 describe("Progress", () => {
   it("renders a progressbar with the progress slot", () => {
@@ -99,10 +95,7 @@ describe("Progress", () => {
   it("merges a custom className without dropping base classes", () => {
     render(<Progress value={60} className="custom-class" />);
 
-    expect(screen.getByRole("progressbar")).toHaveClass(
-      "custom-class",
-      "flex",
-    );
+    expect(screen.getByRole("progressbar")).toHaveClass("custom-class", "flex");
   });
 
   it("forwards arbitrary props to the underlying element", () => {

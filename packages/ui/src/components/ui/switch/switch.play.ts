@@ -3,9 +3,7 @@ import { expect, userEvent, within } from "storybook/test";
 
 import type { Switch } from "./switch";
 
-type PlayContext = Parameters<
-  NonNullable<StoryObj<typeof Switch>["play"]>
->[0];
+type PlayContext = Parameters<NonNullable<StoryObj<typeof Switch>["play"]>>[0];
 
 export const playDefault = async ({ canvasElement }: PlayContext) => {
   const canvas = within(canvasElement);

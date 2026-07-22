@@ -1,35 +1,35 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Toaster as Sonner, type ToasterProps } from "sonner"
+import * as React from "react";
+import { Toaster as Sonner, type ToasterProps } from "sonner";
 import {
   CircleCheckIcon,
   InfoIcon,
   TriangleAlertIcon,
   OctagonXIcon,
   Loader2Icon,
-} from "lucide-react"
+} from "lucide-react";
 
 // Track the active theme from the `.dark` class on <html>, matching the rest of
 // the design system (which themes via class, not prefers-color-scheme).
 function useThemeClass(): "light" | "dark" {
-  const [theme, setTheme] = React.useState<"light" | "dark">("light")
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
 
   React.useEffect(() => {
-    const root = document.documentElement
+    const root = document.documentElement;
     const read = () =>
-      setTheme(root.classList.contains("dark") ? "dark" : "light")
-    read()
-    const observer = new MutationObserver(read)
-    observer.observe(root, { attributes: true, attributeFilter: ["class"] })
-    return () => observer.disconnect()
-  }, [])
+      setTheme(root.classList.contains("dark") ? "dark" : "light");
+    read();
+    const observer = new MutationObserver(read);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
-  return theme
+  return theme;
 }
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const theme = useThemeClass()
+  const theme = useThemeClass();
 
   return (
     <Sonner
@@ -57,11 +57,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       {...props}
     />
-  )
-}
+  );
+};
 
 // Re-export the imperative API so consumers depend on the design system,
 // not on the underlying toast library.
-export { toast } from "sonner"
+export { toast } from "sonner";
 
-export { Toaster }
+export { Toaster };

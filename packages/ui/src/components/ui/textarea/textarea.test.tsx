@@ -16,7 +16,9 @@ describe("Textarea", () => {
   it("renders a placeholder", () => {
     render(<Textarea placeholder="Type something..." />);
 
-    expect(screen.getByPlaceholderText("Type something...")).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText("Type something..."),
+    ).toBeInTheDocument();
   });
 
   it("renders the value from defaultValue", () => {
@@ -69,7 +71,10 @@ describe("Textarea", () => {
   it("merges a custom className without dropping base classes", () => {
     render(<Textarea className="custom-class" />);
 
-    expect(screen.getByRole("textbox")).toHaveClass("custom-class", "rounded-md");
+    expect(screen.getByRole("textbox")).toHaveClass(
+      "custom-class",
+      "rounded-md",
+    );
   });
 
   it("forwards arbitrary props to the underlying element", () => {

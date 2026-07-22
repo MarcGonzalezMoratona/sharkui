@@ -9,26 +9,26 @@
 //
 // <Name> accepts any casing: "Avatar", "avatar", "avatar-group", "AvatarGroup".
 
-import { existsSync } from "node:fs"
-import { mkdir, readFile, writeFile } from "node:fs/promises"
-import { dirname, join } from "node:path"
-import { fileURLToPath } from "node:url"
+import { existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const scriptDir = dirname(fileURLToPath(import.meta.url))
-const srcDir = join(scriptDir, "..", "src")
-const componentsDir = join(srcDir, "components", "ui")
-const indexPath = join(srcDir, "index.ts")
+const scriptDir = dirname(fileURLToPath(import.meta.url));
+const srcDir = join(scriptDir, "..", "src");
+const componentsDir = join(srcDir, "components", "ui");
+const indexPath = join(srcDir, "index.ts");
 
 // ---------------------------------------------------------------------------
 // Argument parsing
 // ---------------------------------------------------------------------------
-const argv = process.argv.slice(2)
-const force = argv.includes("--force")
-const rawName = argv.find((a) => !a.startsWith("--"))
+const argv = process.argv.slice(2);
+const force = argv.includes("--force");
+const rawName = argv.find((a) => !a.startsWith("--"));
 
 if (!rawName) {
-  console.error("Usage: pnpm gen:component <Name> [--force]")
-  process.exit(1)
+  console.error("Usage: pnpm gen:component <Name> [--force]");
+  process.exit(1);
 }
 
 // ---------------------------------------------------------------------------
@@ -40,20 +40,20 @@ function splitWords(input) {
     .replace(/[^a-zA-Z0-9]+/g, " ")
     .trim()
     .split(/\s+/)
-    .filter(Boolean)
+    .filter(Boolean);
 }
 
-const words = splitWords(rawName)
+const words = splitWords(rawName);
 if (words.length === 0) {
-  console.error(`Invalid component name: "${rawName}"`)
-  process.exit(1)
+  console.error(`Invalid component name: "${rawName}"`);
+  process.exit(1);
 }
 
 const Pascal = words
   .map((w) => w[0].toUpperCase() + w.slice(1).toLowerCase())
-  .join("")
-const camel = Pascal[0].toLowerCase() + Pascal.slice(1)
-const kebab = words.map((w) => w.toLowerCase()).join("-")
+  .join("");
+const camel = Pascal[0].toLowerCase() + Pascal.slice(1);
+const kebab = words.map((w) => w.toLowerCase()).join("-");
 
 // ---------------------------------------------------------------------------
 // Templates (tokens: %PASCAL% %CAMEL% %KEBAB% — chosen to avoid clashing with
@@ -100,7 +100,7 @@ function %PASCAL%({
 }
 
 export { %PASCAL%, %CAMEL%Variants }
-`
+`;
 
 const storiesTpl = `import type { Meta, StoryObj } from "@storybook/react-vite";
 
@@ -154,7 +154,7 @@ export const Variants: Story = {
   ),
   play: playVariants,
 };
-`
+`;
 
 const playTpl = `import type { StoryObj } from "@storybook/react-vite";
 import { expect, within } from "storybook/test";
@@ -178,7 +178,7 @@ export const playVariants = async ({ canvasElement }: PlayContext) => {
     await expect(canvas.getByText(label)).toBeInTheDocument();
   }
 };
-`
+`;
 
 const testTpl = `import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
@@ -245,57 +245,57 @@ describe("%CAMEL%Variants", () => {
     expect(%CAMEL%Variants({ variant: "secondary" })).toContain("bg-secondary");
   });
 });
-`
+`;
 
 function render(tpl) {
   return tpl
     .replaceAll("%PASCAL%", Pascal)
     .replaceAll("%CAMEL%", camel)
-    .replaceAll("%KEBAB%", kebab)
+    .replaceAll("%KEBAB%", kebab);
 }
 
 // ---------------------------------------------------------------------------
 // Write files
 // ---------------------------------------------------------------------------
-const targetDir = join(componentsDir, kebab)
+const targetDir = join(componentsDir, kebab);
 
 if (existsSync(targetDir) && !force) {
   console.error(
-    `Component "${kebab}" already exists at ${targetDir}. Use --force to overwrite.`
-  )
-  process.exit(1)
+    `Component "${kebab}" already exists at ${targetDir}. Use --force to overwrite.`,
+  );
+  process.exit(1);
 }
 
-await mkdir(targetDir, { recursive: true })
+await mkdir(targetDir, { recursive: true });
 
 const files = {
   [`${kebab}.tsx`]: render(componentTpl),
   [`${kebab}.stories.tsx`]: render(storiesTpl),
   [`${kebab}.play.ts`]: render(playTpl),
   [`${kebab}.test.tsx`]: render(testTpl),
-}
+};
 
 for (const [file, content] of Object.entries(files)) {
-  await writeFile(join(targetDir, file), content, "utf8")
-  console.log(`  created  src/components/ui/${kebab}/${file}`)
+  await writeFile(join(targetDir, file), content, "utf8");
+  console.log(`  created  src/components/ui/${kebab}/${file}`);
 }
 
 // ---------------------------------------------------------------------------
 // Register export in src/index.ts (inserted before the "// Utils" section)
 // ---------------------------------------------------------------------------
-const exportLine = `export { ${Pascal}, ${camel}Variants } from "./components/ui/${kebab}/${kebab}";`
-let index = await readFile(indexPath, "utf8")
+const exportLine = `export { ${Pascal}, ${camel}Variants } from "./components/ui/${kebab}/${kebab}";`;
+let index = await readFile(indexPath, "utf8");
 
 if (index.includes(exportLine)) {
-  console.log(`  skipped  export already present in src/index.ts`)
+  console.log(`  skipped  export already present in src/index.ts`);
 } else if (index.includes("// Utils")) {
-  index = index.replace("// Utils", `${exportLine}\n\n// Utils`)
-  await writeFile(indexPath, index, "utf8")
-  console.log(`  updated  src/index.ts`)
+  index = index.replace("// Utils", `${exportLine}\n\n// Utils`);
+  await writeFile(indexPath, index, "utf8");
+  console.log(`  updated  src/index.ts`);
 } else {
-  index = `${index.trimEnd()}\n${exportLine}\n`
-  await writeFile(indexPath, index, "utf8")
-  console.log(`  updated  src/index.ts`)
+  index = `${index.trimEnd()}\n${exportLine}\n`;
+  await writeFile(indexPath, index, "utf8");
+  console.log(`  updated  src/index.ts`);
 }
 
-console.log(`\nDone. Component "${Pascal}" scaffolded.`)
+console.log(`\nDone. Component "${Pascal}" scaffolded.`);

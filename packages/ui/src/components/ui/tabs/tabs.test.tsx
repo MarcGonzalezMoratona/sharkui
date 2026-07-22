@@ -163,7 +163,10 @@ describe("TabsList", () => {
       </Tabs>,
     );
 
-    expect(screen.getByRole("tablist")).toHaveClass("custom-class", "inline-flex");
+    expect(screen.getByRole("tablist")).toHaveClass(
+      "custom-class",
+      "inline-flex",
+    );
   });
 });
 

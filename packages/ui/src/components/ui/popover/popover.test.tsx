@@ -114,7 +114,10 @@ describe("Popover", () => {
       </Popover>,
     );
 
-    expect(screen.getByRole("dialog")).toHaveClass("custom-class", "bg-popover");
+    expect(screen.getByRole("dialog")).toHaveClass(
+      "custom-class",
+      "bg-popover",
+    );
   });
 
   it("forwards arbitrary props to the content", () => {
@@ -154,7 +157,10 @@ describe("PopoverTitle", () => {
       </Popover>,
     );
 
-    expect(screen.getByText("Title")).toHaveClass("custom-class", "font-medium");
+    expect(screen.getByText("Title")).toHaveClass(
+      "custom-class",
+      "font-medium",
+    );
   });
 });
 

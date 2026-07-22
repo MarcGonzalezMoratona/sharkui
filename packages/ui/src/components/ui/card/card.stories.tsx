@@ -11,7 +11,12 @@ import {
   CardHeader,
   CardTitle,
 } from "./card";
-import { playDefault, playSmall, playStat, playWithLinkAction } from "./card.play";
+import {
+  playDefault,
+  playSmall,
+  playStat,
+  playWithLinkAction,
+} from "./card.play";
 
 const meta = {
   title: "Components/Card",

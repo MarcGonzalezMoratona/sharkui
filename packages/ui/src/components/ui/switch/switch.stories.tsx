@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Switch } from "./switch";
-import { playChecked, playDefault, playDisabled, playWithLabel } from "./switch.play";
+import {
+  playChecked,
+  playDefault,
+  playDisabled,
+  playWithLabel,
+} from "./switch.play";
 import { Label } from "../label/label";
 
 const meta = {

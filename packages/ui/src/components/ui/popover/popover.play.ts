@@ -35,7 +35,9 @@ export const playDimensions = async ({ canvasElement }: PlayContext) => {
 
   const content = await waitFor(() => screen.getByRole("dialog"));
   await expect(content).toBeInTheDocument();
-  await expect(screen.getByText("Set the dimensions for the layer.")).toBeInTheDocument();
+  await expect(
+    screen.getByText("Set the dimensions for the layer."),
+  ).toBeInTheDocument();
 
   const width = screen.getByLabelText("Width");
   await userEvent.clear(width);

@@ -22,9 +22,7 @@ describe("Input", () => {
   it("renders a placeholder", () => {
     render(<Input placeholder="you@example.com" />);
 
-    expect(
-      screen.getByPlaceholderText("you@example.com"),
-    ).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("you@example.com")).toBeInTheDocument();
   });
 
   it("accepts user input", () => {
@@ -65,7 +63,10 @@ describe("Input", () => {
   it("merges a custom className without dropping base classes", () => {
     render(<Input className="custom-class" />);
 
-    expect(screen.getByRole("textbox")).toHaveClass("custom-class", "rounded-md");
+    expect(screen.getByRole("textbox")).toHaveClass(
+      "custom-class",
+      "rounded-md",
+    );
   });
 
   it("forwards arbitrary props to the underlying element", () => {

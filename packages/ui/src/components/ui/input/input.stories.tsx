@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Input } from "./input";
-import { playDefault, playDisabled, playInvalid, playWithLabel } from "./input.play";
+import {
+  playDefault,
+  playDisabled,
+  playInvalid,
+  playWithLabel,
+} from "./input.play";
 import { Label } from "../label/label";
 
 const meta = {

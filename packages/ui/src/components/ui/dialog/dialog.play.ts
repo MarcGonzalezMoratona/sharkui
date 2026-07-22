@@ -50,11 +50,15 @@ export const playEditProfile = async ({ canvasElement }: PlayContext) => {
 export const playConfirmDelete = async ({ canvasElement }: PlayContext) => {
   const canvas = within(canvasElement);
 
-  await userEvent.click(canvas.getByRole("button", { name: /delete account/i }));
+  await userEvent.click(
+    canvas.getByRole("button", { name: /delete account/i }),
+  );
 
   const content = await waitFor(() => screen.getByRole("dialog"));
   await expect(content).toHaveAttribute("data-slot", "dialog-content");
-  await expect(screen.getByText("Are you absolutely sure?")).toBeInTheDocument();
+  await expect(
+    screen.getByText("Are you absolutely sure?"),
+  ).toBeInTheDocument();
 
   await userEvent.click(screen.getByRole("button", { name: /^delete$/i }));
   await waitFor(() =>
@@ -62,7 +66,9 @@ export const playConfirmDelete = async ({ canvasElement }: PlayContext) => {
   );
 };
 
-export const playWithoutCloseButton = async ({ canvasElement }: PlayContext) => {
+export const playWithoutCloseButton = async ({
+  canvasElement,
+}: PlayContext) => {
   const canvas = within(canvasElement);
 
   await userEvent.click(canvas.getByRole("button", { name: /^open$/i }));

@@ -42,7 +42,9 @@ export const playSides = async ({ canvasElement }: PlayContext) => {
 export const playNavigation = async ({ canvasElement }: PlayContext) => {
   const canvas = within(canvasElement);
 
-  await userEvent.click(canvas.getByRole("button", { name: /open navigation/i }));
+  await userEvent.click(
+    canvas.getByRole("button", { name: /open navigation/i }),
+  );
 
   const dialog = await waitFor(() => screen.getByRole("dialog"));
   await expect(dialog).toHaveAttribute("data-side", "left");

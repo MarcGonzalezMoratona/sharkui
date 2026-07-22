@@ -3,7 +3,9 @@ import { expect, userEvent, within } from "storybook/test";
 
 import type { Textarea } from "./textarea";
 
-type PlayContext = Parameters<NonNullable<StoryObj<typeof Textarea>["play"]>>[0];
+type PlayContext = Parameters<
+  NonNullable<StoryObj<typeof Textarea>["play"]>
+>[0];
 
 export const playDefault = async ({ canvasElement }: PlayContext) => {
   const canvas = within(canvasElement);
