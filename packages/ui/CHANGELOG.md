@@ -1,5 +1,23 @@
 # @marcgm/sharkui
 
+## 0.9.0
+
+### Minor Changes
+
+- [`31cde9a`](https://github.com/MarcGonzalezMoratona/sharkui/commit/31cde9ab3d5691eb2e65297074e3ed008160e1ff) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Separator` component for dividing content and groups of related elements.
+
+  - New `Separator` component built on Base UI, accessible with `role="separator"`.
+  - Supports horizontal and vertical orientation via the `orientation` prop.
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+  - `Separator` is exported from the package barrel.
+
+- [`5a8688e`](https://github.com/MarcGonzalezMoratona/sharkui/commit/5a8688e0ee0f7f137dd7dcd96b0612cfc1cea730) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Sheet` component for content that slides in from the edges of the viewport.
+
+  - New `Sheet` component built on Base UI's `Dialog`, with `Sheet`, `SheetTrigger`, `SheetClose`, `SheetContent`, `SheetHeader`, `SheetFooter`, `SheetTitle`, and `SheetDescription`.
+  - Supports `top`, `right`, `bottom`, and `left` sides via the `side` prop, plus an optional close button via `showCloseButton`.
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+  - All `Sheet` parts are exported from the package barrel.
+
 ## 0.8.0
 
 ### Minor Changes
