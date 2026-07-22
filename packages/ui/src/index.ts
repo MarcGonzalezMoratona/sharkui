@@ -1,6 +1,9 @@
 // Actions
 export { Button, buttonVariants } from "./components/ui/button/button";
 
+// Data Display
+export { Badge, badgeVariants } from "./components/ui/badge/badge";
+
 // Overlays
 export {
   Tooltip,
