@@ -1,5 +1,16 @@
 # @marcgm/sharkui
 
+## 0.12.0
+
+### Minor Changes
+
+- [`2b0aa17`](https://github.com/MarcGonzalezMoratona/sharkui/commit/2b0aa17d39016528755f5249784a94cb42a48abf) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Textarea` component for multi-line text input.
+
+  - New `Textarea` component wrapping the native `<textarea>` with `field-sizing-content` auto-grow, focus/invalid ring styling, and full prop forwarding.
+  - Supports placeholder, `defaultValue`/controlled `value`, `rows`, disabled, `readOnly`, and `aria-invalid` states.
+  - Ships with unit tests, Storybook stories, and interaction play functions (default, disabled, invalid, and labelled).
+  - `Textarea` is exported from the package barrel.
+
 ## 0.11.0
 
 ### Minor Changes
