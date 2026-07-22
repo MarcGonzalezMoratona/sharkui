@@ -66,5 +66,13 @@ export {
 
 export { Switch } from "./components/ui/switch/switch";
 
+export {
+  Progress,
+  ProgressIndicator,
+  ProgressLabel,
+  ProgressTrack,
+  ProgressValue,
+} from "./components/ui/progress/progress";
+
 // Utils
 export { cn } from "./lib/utils";
