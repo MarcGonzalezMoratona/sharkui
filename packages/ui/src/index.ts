@@ -43,5 +43,13 @@ export {
   AvatarImage,
 } from "./components/ui/avatar/avatar";
 
+export {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  tabsListVariants,
+} from "./components/ui/tabs/tabs";
+
 // Utils
 export { cn } from "./lib/utils";
