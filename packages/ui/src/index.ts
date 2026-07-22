@@ -87,5 +87,7 @@ export {
   SelectValue,
 } from "./components/ui/select/select";
 
+export { Textarea } from "./components/ui/textarea/textarea";
+
 // Utils
 export { cn } from "./lib/utils";
