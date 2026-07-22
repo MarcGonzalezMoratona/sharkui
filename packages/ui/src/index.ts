@@ -98,5 +98,18 @@ export {
   PopoverTrigger,
 } from "./components/ui/popover/popover";
 
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from "./components/ui/dialog/dialog";
+
 // Utils
 export { cn } from "./lib/utils";
