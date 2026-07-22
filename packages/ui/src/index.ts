@@ -64,5 +64,7 @@ export {
   SheetTrigger,
 } from "./components/ui/sheet/sheet";
 
+export { Switch } from "./components/ui/switch/switch";
+
 // Utils
 export { cn } from "./lib/utils";
