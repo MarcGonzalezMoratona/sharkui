@@ -1,5 +1,16 @@
 # @marcgm/sharkui
 
+## 0.8.0
+
+### Minor Changes
+
+- [`7987ba5`](https://github.com/MarcGonzalezMoratona/sharkui/commit/7987ba5c89c37a248c536b9e8b55575e65de1bf8) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Tabs` component for switching between related panels.
+
+  - New `Tabs` component built on Base UI, with `TabsList`, `TabsTrigger`, and `TabsContent`.
+  - Supports `default` and `line` list variants via the `variant` prop on `TabsList`, plus horizontal and vertical orientation via the `orientation` prop.
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+  - All tabs parts and `tabsListVariants` are exported from the package barrel.
+
 ## 0.7.0
 
 ### Minor Changes
