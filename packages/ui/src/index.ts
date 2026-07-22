@@ -51,5 +51,7 @@ export {
   tabsListVariants,
 } from "./components/ui/tabs/tabs";
 
+export { Separator } from "./components/ui/separator/separator";
+
 // Utils
 export { cn } from "./lib/utils";
