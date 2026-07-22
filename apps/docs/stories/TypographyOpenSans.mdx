@@ -1,0 +1,35 @@
+import { Meta, Typeset, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Typography/Open Sans" />
+
+export const sizes = [12, 14, 16, 20, 24, 32, 40, 48];
+
+export const weights = [
+  [300, "Light"],
+  [400, "Regular"],
+  [500, "Medium"],
+  [600, "SemiBold"],
+  [700, "Bold"],
+  [800, "ExtraBold"],
+];
+
+export const sample = "The quick brown fox jumps over the lazy dog.";
+
+export const ladder = (fontFamily) =>
+  weights.map(([weight, name]) => (
+    <div key={weight}>
+      <h3>{`Font weight: ${name} (${weight})`}</h3>
+      <Typeset
+        fontSizes={sizes}
+        fontWeight={weight}
+        sampleText={sample}
+        fontFamily={fontFamily}
+      />
+    </div>
+  ));
+
+<Title>Open Sans — Body / Text</Title>
+
+Variable font covering its native **300–800** weight range.
+
+{ladder("Open Sans Variable, sans-serif")}

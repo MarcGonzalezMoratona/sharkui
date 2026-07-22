@@ -1,0 +1,64 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+<style>{`
+  .sb-logo-dark { display: none; }
+  html.dark .sb-logo-dark { display: inline-block; }
+  html.dark .sb-logo-light { display: none; }
+`}</style>
+
+<div style={{ textAlign: "center", margin: "2.5rem 0 2rem" }}>
+  <img src="/brand-light.svg" alt="Shark UI" className="sb-logo-light" width={280} />
+  <img src="/brand-dark.svg" alt="Shark UI" className="sb-logo-dark" width={280} />
+</div>
+
+A React design system built on [shadcn-ui](https://ui.shadcn.com/) — powered by
+**Base UI** and **Tailwind CSS v4**. Shark UI ships a set of accessible,
+composable components and the design tokens (colors, typography) behind them, so
+you can build consistent interfaces without reinventing the primitives.
+
+This Storybook is the interactive component explorer: browse every component,
+tweak its props live through the controls, and copy the code straight into your
+app.
+
+## Purpose
+
+- **One source of truth** — components and their design tokens live in a single
+  published package, keeping every app that consumes it visually consistent.
+- **Accessible by default** — built on [Base UI](https://base-ui.com/)
+  primitives, with light/dark themes and a11y checks wired into the docs.
+- **Copy-paste friendly** — inspect any story, adjust the controls, and grab the
+  generated snippet.
+
+## Install
+
+```bash
+npm install @marcgm/sharkui
+```
+
+```tsx
+import "@marcgm/sharkui/styles.css";
+import { Button } from "@marcgm/sharkui";
+
+export function App() {
+  return <Button variant="secondary">Click me</Button>;
+}
+```
+
+## How this is organized
+
+- **Foundations** — the design tokens the system is built on: [Colors](?path=/docs/foundations-colors--docs)
+  and [Typography](?path=/docs/foundations-typography--docs).
+- **Components** — every published component, one section each, with live
+  controls and usage examples.
+
+## Tech stack
+
+React 19 · TypeScript · Tailwind CSS v4 · Base UI · shadcn-ui · Storybook ·
+Vitest · pnpm
+
+## Links
+
+- **Package** — [`@marcgm/sharkui` on npm](https://www.npmjs.com/package/@marcgm/sharkui)
+- **Source** — [GitHub](https://github.com/MarcGonzalezMoratona/sharkui)
