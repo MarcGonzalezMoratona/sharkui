@@ -1,5 +1,22 @@
 # @marcgm/sharkui
 
+## 0.13.0
+
+### Minor Changes
+
+- [`b3d87f0`](https://github.com/MarcGonzalezMoratona/sharkui/commit/b3d87f0a23c70d61d69f4c9954d8fd96728061e0) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Dialog` component for modal content that interrupts the user with important information or actions.
+
+  - New `Dialog` primitives wrapping Base UI: `Dialog`, `DialogTrigger`, `DialogContent`, `DialogOverlay`, `DialogHeader`, `DialogFooter`, `DialogTitle`, `DialogDescription`, `DialogClose`, and `DialogPortal`.
+  - `DialogContent` renders through a portal with an overlay, open/close animations, and an optional top-right close button (`showCloseButton`); `DialogFooter` supports an optional `showCloseButton` action.
+  - Ships with unit tests, Storybook stories, and interaction play functions (default, edit profile, confirm delete, and without close button).
+
+- [`b7a13d6`](https://github.com/MarcGonzalezMoratona/sharkui/commit/b7a13d62ca26cf6061ed9c41c5f5fb4d7f567a1f) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Popover` component for lightweight, contextual content anchored to a trigger.
+
+  - New `Popover` primitives wrapping Base UI: `Popover`, `PopoverTrigger`, `PopoverContent`, `PopoverHeader`, `PopoverTitle`, and `PopoverDescription`.
+  - `PopoverContent` supports `align`, `alignOffset`, `side`, and `sideOffset` positioning, with open/close animations and portal rendering.
+  - Ships with unit tests, Storybook stories, and interaction play functions (default, dimensions, and sides).
+  - All primitives are exported from the package barrel.
+
 ## 0.12.0
 
 ### Minor Changes
