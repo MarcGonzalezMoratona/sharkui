@@ -53,5 +53,16 @@ export {
 
 export { Separator } from "./components/ui/separator/separator";
 
+export {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./components/ui/sheet/sheet";
+
 // Utils
 export { cn } from "./lib/utils";
