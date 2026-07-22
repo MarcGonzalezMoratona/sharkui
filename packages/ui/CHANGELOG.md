@@ -1,5 +1,11 @@
 # @marcgm/sharkui
 
+## 0.4.0
+
+### Minor Changes
+
+- Add Card component with CardHeader, CardTitle, CardDescription, CardAction, CardContent, and CardFooter subcomponents, including unit tests, Storybook stories, and interaction play functions.
+
 ## 0.3.0
 
 ### Minor Changes
