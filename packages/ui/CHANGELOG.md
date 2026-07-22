@@ -1,5 +1,11 @@
 # @marcgm/sharkui
 
+## 0.5.0
+
+### Minor Changes
+
+- Add `Checkbox`, `Label`, and `Input` components with unit tests, Storybook stories, and interaction play functions. All three are exported from the package barrel.
+
 ## 0.4.0
 
 ### Minor Changes
