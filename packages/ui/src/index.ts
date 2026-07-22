@@ -89,5 +89,14 @@ export {
 
 export { Textarea } from "./components/ui/textarea/textarea";
 
+export {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "./components/ui/popover/popover";
+
 // Utils
 export { cn } from "./lib/utils";
