@@ -129,5 +129,19 @@ export {
   DropdownMenuTrigger,
 } from "./components/ui/dropdown-menu/dropdown-menu";
 
+export {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
+  FieldSeparator,
+  FieldSet,
+  FieldTitle,
+  fieldVariants,
+} from "./components/ui/field/field";
+
 // Utils
 export { cn } from "./lib/utils";
