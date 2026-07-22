@@ -34,7 +34,14 @@ export { Input } from "./components/ui/input/input";
 
 export { Skeleton } from "./components/ui/skeleton/skeleton";
 
-export { Avatar } from "./components/ui/avatar/avatar";
+export {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImage,
+} from "./components/ui/avatar/avatar";
 
 // Utils
 export { cn } from "./lib/utils";
