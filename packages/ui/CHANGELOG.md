@@ -1,5 +1,11 @@
 # @marcgm/sharkui
 
+## 0.3.0
+
+### Minor Changes
+
+- Add `Badge` component with `default`, `secondary`, `destructive`, `outline`, `ghost`, and `link` variants, plus the `badgeVariants` helper. Supports polymorphic rendering via the `render` prop and inline-start/inline-end icon slots.
+
 ## 0.2.0
 
 ### Minor Changes
