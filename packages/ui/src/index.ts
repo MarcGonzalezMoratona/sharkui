@@ -26,5 +26,11 @@ export {
 // Feedback
 export { Toaster, toast } from "./components/ui/toast/toast";
 
+export { Checkbox } from "./components/ui/checkbox/checkbox";
+
+export { Label } from "./components/ui/label/label";
+
+export { Input } from "./components/ui/input/input";
+
 // Utils
 export { cn } from "./lib/utils";
