@@ -74,5 +74,18 @@ export {
   ProgressValue,
 } from "./components/ui/progress/progress";
 
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "./components/ui/select/select";
+
 // Utils
 export { cn } from "./lib/utils";
