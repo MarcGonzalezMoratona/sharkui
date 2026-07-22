@@ -143,5 +143,16 @@ export {
   fieldVariants,
 } from "./components/ui/field/field";
 
+export {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./components/ui/table/table";
+
 // Utils
 export { cn } from "./lib/utils";
