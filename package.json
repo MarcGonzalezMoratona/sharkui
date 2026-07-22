@@ -8,7 +8,11 @@
     "build": "pnpm -r build",
     "build-storybook": "pnpm --filter docs build-storybook",
     "lint": "oxlint",
-    "test": "pnpm --filter docs test",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "pnpm --filter @marcgm/sharkui test",
+    "test:coverage": "pnpm --filter @marcgm/sharkui test:coverage",
+    "test:stories": "pnpm --filter docs test",
     "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm --filter @marcgm/sharkui build && changeset publish"
@@ -18,7 +22,8 @@
     "@changesets/cli": "^2.31.1",
     "@types/node": "^24.13.2",
     "oxlint": "^1.71.0",
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.2",
+    "vitest": "^4.1.10"
   },
   "packageManager": "pnpm@10.34.5"
 }

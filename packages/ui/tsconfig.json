@@ -8,5 +8,5 @@
     "ignoreDeprecations": "6.0",
     "tsBuildInfoFile": "./node_modules/.tmp/ui.tsbuildinfo"
   },
-  "include": ["src"]
+  "include": ["src", "vitest.setup.ts"]
 }
