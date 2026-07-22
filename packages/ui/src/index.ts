@@ -32,5 +32,7 @@ export { Label } from "./components/ui/label/label";
 
 export { Input } from "./components/ui/input/input";
 
+export { Skeleton } from "./components/ui/skeleton/skeleton";
+
 // Utils
 export { cn } from "./lib/utils";
