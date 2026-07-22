@@ -1,5 +1,14 @@
 # @marcgm/sharkui
 
+## 0.16.0
+
+### Minor Changes
+
+- [`ea42dc7`](https://github.com/MarcGonzalezMoratona/sharkui/commit/ea42dc75ccc333f30dd71bfaacdfe2e1f2bcce2b) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Table` component for building accessible data tables with headers, bodies, footers, captions, and selectable rows.
+
+  - New `Table` primitives (`Table`, `TableHeader`, `TableBody`, `TableFooter`, `TableRow`, `TableHead`, `TableCell`, `TableCaption`).
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+
 ## 0.15.0
 
 ### Minor Changes
