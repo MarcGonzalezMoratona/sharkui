@@ -1,5 +1,26 @@
 # @marcgm/sharkui
 
+## 0.11.0
+
+### Minor Changes
+
+- [`5ad423c`](https://github.com/MarcGonzalezMoratona/sharkui/commit/5ad423c42e961eb2c2463168c83e0888760d9c60) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Progress` component for displaying task completion status.
+
+  - New `Progress` component built on Base UI's `Progress`, composing `ProgressTrack` and `ProgressIndicator` internally.
+  - Supports determinate, complete, and indeterminate (`value={null}`) states, plus custom `min`/`max` bounds.
+  - Exposes `ProgressLabel` and `ProgressValue` for an accessible label and a formatted percentage readout.
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+  - `Progress`, `ProgressTrack`, `ProgressIndicator`, `ProgressLabel`, and `ProgressValue` are exported from the package barrel.
+
+- [`7bd460b`](https://github.com/MarcGonzalezMoratona/sharkui/commit/7bd460bc4146e5e89028df46745154134d8b2dd7) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Select` component for choosing a single value from a list of options.
+
+  - New `Select` component built on Base UI's `Select`, composing the portal, positioner, popup, and scroll arrows internally.
+  - Ships `SelectTrigger` (with `default`/`sm` sizes), `SelectValue`, `SelectContent`, `SelectItem`, `SelectGroup`, `SelectLabel`, and `SelectSeparator` for building grouped, labelled menus.
+  - Supports placeholder, `defaultValue`/controlled `value`, disabled items, and disabled triggers.
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+  - `Select`, `SelectContent`, `SelectGroup`, `SelectItem`, `SelectLabel`, `SelectScrollDownButton`, `SelectScrollUpButton`, `SelectSeparator`, `SelectTrigger`, and `SelectValue` are exported from the package barrel.
+  - Fixes the `Tabs` keyboard-navigation interaction test to match the list's manual activation (arrows move focus, `Enter` selects).
+
 ## 0.10.0
 
 ### Minor Changes
