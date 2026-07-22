@@ -1,5 +1,16 @@
 # @marcgm/sharkui
 
+## 0.10.0
+
+### Minor Changes
+
+- [`38de5a1`](https://github.com/MarcGonzalezMoratona/sharkui/commit/38de5a1f073ff9de75f0ce72ce7b2444db5589ac) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Switch` component for toggling a single setting on or off.
+
+  - New `Switch` component built on Base UI's `Switch`, with a `size` prop (`sm` and `default`).
+  - Supports checked, unchecked, and disabled states, plus controlled and uncontrolled usage via `checked`/`defaultChecked` and `onCheckedChange`.
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+  - `Switch` is exported from the package barrel.
+
 ## 0.9.0
 
 ### Minor Changes
