@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+
 import { Button } from "../button/button";
 import { Toaster, toast } from "./toast";
+import { playDefault, playVariants, playWithAction } from "./toast.play";
 
 const meta = {
   title: "Components/Toast",
@@ -22,6 +24,7 @@ export const Default: Story = {
       <Toaster {...args} />
     </div>
   ),
+  play: playDefault,
 };
 
 export const Variants: Story = {
@@ -54,6 +57,7 @@ export const Variants: Story = {
       <Toaster {...args} />
     </div>
   ),
+  play: playVariants,
 };
 
 export const WithDescription: Story = {
@@ -91,4 +95,5 @@ export const WithAction: Story = {
       <Toaster {...args} />
     </div>
   ),
+  play: playWithAction,
 };

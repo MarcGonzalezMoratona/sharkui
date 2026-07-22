@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 
 import { Button } from "./button";
+import { playDefault, playDisabled } from "./button.play";
 
 const meta = {
   title: "Components/Button",
@@ -31,6 +33,7 @@ const meta = {
     children: "Button",
     variant: "default",
     size: "default",
+    onClick: fn(),
   },
 } satisfies Meta<typeof Button>;
 
@@ -38,10 +41,17 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  play: playDefault,
+};
 
 export const Secondary: Story = {
   args: { variant: "secondary" },
+};
+
+export const Disabled: Story = {
+  args: { disabled: true },
+  play: playDisabled,
 };
 
 export const Outline: Story = {

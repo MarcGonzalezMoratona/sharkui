@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { expect, screen, userEvent, waitFor, within } from "storybook/test";
 
 import { Button } from "../button/button";
 import {
@@ -8,6 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./tooltip";
+import { playDefault, playKeyboard, playOpen } from "./tooltip.play";
 
 const meta = {
   title: "Components/Tooltip",
@@ -36,21 +36,7 @@ export const Default: Story = {
       <TooltipContent>Add to library</TooltipContent>
     </Tooltip>
   ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const trigger = canvas.getByRole("button", { name: /hover me/i });
-
-    // Tooltip content is portaled outside the canvas -> query the document.
-    await userEvent.hover(trigger);
-    const content = await waitFor(() => screen.getByText("Add to library"));
-    await expect(content).toBeInTheDocument();
-
-    // Unhover dismisses it.
-    await userEvent.unhover(trigger);
-    await waitFor(() =>
-      expect(screen.queryByText("Add to library")).not.toBeInTheDocument(),
-    );
-  },
+  play: playDefault,
 };
 
 export const Sides: Story = {
@@ -98,6 +84,7 @@ export const WithKeyboardShortcut: Story = {
       </TooltipContent>
     </Tooltip>
   ),
+  play: playKeyboard,
 };
 
 export const LongText: Story = {
@@ -145,4 +132,5 @@ export const Open: Story = {
       </Tooltip>
     </div>
   ),
+  play: playOpen,
 };

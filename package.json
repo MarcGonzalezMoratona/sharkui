@@ -8,6 +8,7 @@
     "build": "pnpm -r build",
     "build-storybook": "pnpm --filter docs build-storybook",
     "lint": "oxlint",
+    "test": "pnpm --filter docs test",
     "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm --filter @marcgm/sharkui build && changeset publish"
