@@ -1,5 +1,14 @@
 # @marcgm/sharkui
 
+## 0.15.0
+
+### Minor Changes
+
+- [`b3e9601`](https://github.com/MarcGonzalezMoratona/sharkui/commit/b3e9601b4c212cb6606b2ebae7451111b372f428) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add the `Field` component for building accessible form fields with labels, descriptions, and validation messages.
+
+  - New `Field` primitives wrapping Base UI.
+  - Ships with unit tests, Storybook stories, and interaction play functions.
+
 ## 0.14.0
 
 ### Minor Changes
