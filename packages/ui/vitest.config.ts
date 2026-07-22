@@ -26,7 +26,7 @@ export default defineConfig({
         "src/**/*.test.{ts,tsx}",
         "src/index.ts",
       ],
-      reporter: ["text", "html"],
+      reporter: ["text", "html", "json", "json-summary"],
     },
   },
 });

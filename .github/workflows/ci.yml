@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+# Lets the coverage action post/update its comment on the PR.
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        env:
+          # Skip the auto-download during install; the browser is installed
+          # explicitly below with its OS dependencies.
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm --filter @marcgm/sharkui typecheck
+
+      # Storybook interaction tests run in a real browser (Vitest browser mode).
+      - name: Install Playwright Chromium
+        run: pnpm --filter docs exec playwright install --with-deps chromium
+
+      # Merged coverage: jsdom unit tests + Storybook browser (play) tests.
+      - name: Tests with coverage
+        run: pnpm test:coverage
+
+      - name: Report coverage on PR
+        # Runs even if a previous step failed, so the report still posts.
+        if: ${{ !cancelled() }}
+        uses: davelosert/vitest-coverage-report-action@v2
