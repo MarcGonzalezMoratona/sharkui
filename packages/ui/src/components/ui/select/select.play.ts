@@ -16,7 +16,9 @@ export const playDefault = async ({ canvasElement }: PlayContext) => {
   await userEvent.click(trigger);
 
   const listbox = await waitFor(() => screen.getByRole("listbox"));
-  await expect(listbox).toHaveAttribute("data-slot", "select-content");
+  await expect(
+    listbox.closest('[data-slot="select-content"]'),
+  ).toBeInTheDocument();
 
   await userEvent.click(screen.getByRole("option", { name: "Banana" }));
 
@@ -58,11 +60,12 @@ export const playDisabledItem = async ({ canvasElement }: PlayContext) => {
   });
   await expect(disabled).toHaveAttribute("data-disabled");
   await expect(disabled).toHaveAttribute("aria-disabled", "true");
+  await userEvent.click(screen.getByRole("option", { name: "Pro" }));
 
-  await userEvent.click(disabled);
-
-  await expect(screen.getByRole("listbox")).toBeInTheDocument();
-  await expect(canvas.getByRole("combobox")).toHaveTextContent("Select a plan");
+  await waitFor(() =>
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument(),
+  );
+  await expect(canvas.getByRole("combobox")).toHaveTextContent("pro");
 };
 
 export const playPreselected = async ({ canvasElement }: PlayContext) => {

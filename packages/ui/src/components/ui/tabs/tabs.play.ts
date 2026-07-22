@@ -28,7 +28,9 @@ export const playDefault = async ({ canvasElement }: PlayContext) => {
   ).toBeInTheDocument();
 };
 
-export const playKeyboardNavigation = async ({ canvasElement }: PlayContext) => {
+export const playKeyboardNavigation = async ({
+  canvasElement,
+}: PlayContext) => {
   const canvas = within(canvasElement);
 
   const account = canvas.getByRole("tab", { name: "Account" });
@@ -39,10 +41,15 @@ export const playKeyboardNavigation = async ({ canvasElement }: PlayContext) => 
 
   await userEvent.keyboard("{ArrowRight}");
   await expect(password).toHaveFocus();
+  await expect(password).toHaveAttribute("aria-selected", "false");
+
+  await userEvent.keyboard("{Enter}");
   await expect(password).toHaveAttribute("aria-selected", "true");
 
   await userEvent.keyboard("{ArrowLeft}");
   await expect(account).toHaveFocus();
+
+  await userEvent.keyboard("{Enter}");
   await expect(account).toHaveAttribute("aria-selected", "true");
 };
 
