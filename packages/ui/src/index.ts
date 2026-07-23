@@ -90,6 +90,12 @@ export {
 
 // Data Display
 export {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./components/ui/accordion/accordion";
+export {
   Avatar,
   AvatarBadge,
   AvatarFallback,
