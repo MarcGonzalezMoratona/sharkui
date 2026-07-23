@@ -1,5 +1,22 @@
 # @marcgm/sharkui
 
+## 0.16.2
+
+### Patch Changes
+
+- [`7979309`](https://github.com/MarcGonzalezMoratona/sharkui/commit/7979309f20bacc4616bf85e2729553767c47f5c4) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Add an **Engineering › Decisions** section to Storybook — an Architecture Decision Record (ADR) log documenting the technical decisions behind the design system:
+
+  - Nine ADRs, each with **Context / Decision / Alternatives considered / Consequences**, covering Base UI as the primitive layer, Tailwind v4 CSS-first tokens, the headless brand overlay, the systematic OKLCH palette, the ESM per-module Rollup build, two-tier testing, oxlint, Changesets, and the component convention.
+  - An **Overview** page explaining the ADR format and how to add new records, surfaced in the sidebar right after Foundations.
+  - Enable `remark-gfm` in the Storybook docs pipeline so GitHub-Flavored Markdown (tables, strikethrough, task lists) renders in MDX — Storybook does not ship it by default.
+
+- [`7979309`](https://github.com/MarcGonzalezMoratona/sharkui/commit/7979309f20bacc4616bf85e2729553767c47f5c4) Thanks [@MarcGonzalezMoratona](https://github.com/MarcGonzalezMoratona)! - Document component props across the whole library:
+
+  - **Storybook prop categories** — every component's `argTypes` now groups props into a consistent set of categories (`Appearance`, `Positioning`, `State`, `Content`, `Events`) with per-prop descriptions, so the autodocs Controls/props table is organized instead of a flat list.
+  - **JSDoc on component props** — added JSDoc (with `@default`) to the props each component declares itself. `cva` variant/size props and `Pick`'d positioning props (`side`/`sideOffset`/`align`/`alignOffset`/`alignItemWithTrigger`) were rewritten into inline, type-identical literals so they carry JSDoc too — surfacing in both IDE hover and Storybook autodocs.
+
+  Docs/types only: no runtime or public API changes.
+
 ## 0.16.1
 
 ### Patch Changes
