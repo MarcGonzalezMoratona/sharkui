@@ -45,6 +45,7 @@ const meta = {
   },
   args: {
     size: "default",
+    "aria-label": "Airplane mode",
   },
 } satisfies Meta<typeof Switch>;
 
@@ -82,7 +83,7 @@ export const Sizes: Story = {
 export const WithLabel: Story = {
   render: (args) => (
     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      <Switch {...args} id="airplane-mode" />
+      <Switch {...args} aria-label={undefined} id="airplane-mode" />
       <Label htmlFor="airplane-mode">Airplane mode</Label>
     </div>
   ),

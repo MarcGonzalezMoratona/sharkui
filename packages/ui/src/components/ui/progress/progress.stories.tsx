@@ -27,6 +27,7 @@ const meta = {
   },
   args: {
     value: 60,
+    "aria-label": "Upload progress",
   },
   render: (args) => (
     <div style={{ width: 320 }}>
@@ -66,7 +67,7 @@ export const Labeled: Story = {
   args: { value: 72 },
   render: (args) => (
     <div style={{ width: 320 }}>
-      <Progress {...args}>
+      <Progress {...args} aria-label={undefined}>
         <ProgressLabel>Uploading</ProgressLabel>
         <ProgressValue />
       </Progress>

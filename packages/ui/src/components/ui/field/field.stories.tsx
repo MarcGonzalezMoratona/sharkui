@@ -152,7 +152,7 @@ export const WithTitle: Story = {
             Receive tips, product updates, and offers.
           </FieldDescription>
         </FieldContent>
-        <Switch id="marketing" />
+        <Switch id="marketing" aria-label="Marketing emails" />
       </Field>
     </div>
   ),

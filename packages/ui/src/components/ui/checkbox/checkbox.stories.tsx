@@ -47,6 +47,9 @@ const meta = {
       table: { category: "Events" },
     },
   },
+  args: {
+    "aria-label": "Accept terms and conditions",
+  },
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
@@ -74,7 +77,7 @@ export const DisabledChecked: Story = {
 export const WithLabel: Story = {
   render: (args) => (
     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      <Checkbox {...args} id="terms" />
+      <Checkbox {...args} aria-label={undefined} id="terms" />
       <Label htmlFor="terms">Accept terms and conditions</Label>
     </div>
   ),
