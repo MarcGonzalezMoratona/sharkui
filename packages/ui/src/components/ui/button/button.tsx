@@ -45,7 +45,18 @@ function Button({
   variant = "default",
   size = "default",
   ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+}: ButtonPrimitive.Props & {
+  /**
+   * Visual style of the button.
+   * @default "default"
+   */
+  variant?: VariantProps<typeof buttonVariants>["variant"];
+  /**
+   * Size of the button.
+   * @default "default"
+   */
+  size?: VariantProps<typeof buttonVariants>["size"];
+}) {
   return (
     <ButtonPrimitive
       data-slot="button"

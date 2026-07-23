@@ -1,0 +1,46 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0008 · Changesets" />
+
+<Title>0008 · Changesets for versioning and the changelog</Title>
+
+**Status:** Accepted
+
+## Context
+
+The library grows one component at a time — each landing as its own PR — and is
+published to npm as `@marcgm/sharkui`. That needs a repeatable answer to two
+questions: what version does this change warrant (semver), and how does the
+change get recorded for consumers (changelog)? Doing both by hand is
+error-prone and easy to forget.
+
+## Decision
+
+Adopt **Changesets**. Every change that affects the package ships a changeset
+file declaring its bump (`patch` / `minor` / `major`) and a human-written
+summary. `@changesets/cli` consumes them to version the package and generate the
+`CHANGELOG.md`, with `@changesets/changelog-github` linking entries back to
+their PRs and authors. Release is `changeset publish`.
+
+## Alternatives considered
+
+- **Manual semver + hand-written changelog** — no tooling, but relies on
+  discipline and is easy to get wrong or skip.
+- **semantic-release** — fully automated from commit messages, but infers intent
+  from commits rather than capturing an explicit, reviewed changelog entry.
+- **release-please** — PR-based like Changesets, but more oriented toward
+  Google's release flow than a small npm-published monorepo.
+
+## Consequences
+
+**Good**
+
+- Change intent is explicit and human-authored — the changelog reads like it was
+  written for consumers, because it was.
+- Versioning and the GitHub-linked changelog are automated and consistent.
+- Fits the monorepo and scales cleanly if a second package is ever added.
+
+**Trade-offs**
+
+- Contributors must remember to add a changeset — a real friction point,
+  mitigated by making it a settled convention (see the commit history).

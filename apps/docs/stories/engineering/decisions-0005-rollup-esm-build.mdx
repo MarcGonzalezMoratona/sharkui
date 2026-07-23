@@ -1,0 +1,52 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0005 · ESM per-module Rollup build" />
+
+<Title>0005 · ESM-only, per-module Rollup build with RSC directives</Title>
+
+**Status:** Accepted
+
+## Context
+
+The package is consumed by modern React apps, including **React Server
+Components** (Next.js App Router). Two properties matter for that audience: the
+bundle must **tree-shake** to the components actually imported, and the
+`"use client"` directives on interactive components must **survive the build** so
+the client/server boundary stays correct.
+
+## Decision
+
+Build with **Rollup**, configured for granular output:
+
+- `preserveModules: true` — one output file per source module, imports kept as
+  ESM, so consumers only pull in what they import.
+- **`rollup-plugin-preserve-directives`** — keeps top-of-file `"use client"`
+  directives intact (and silences the `MODULE_LEVEL_DIRECTIVE` warning).
+- **ESM-only** output (`format: "es"`); `sideEffects` is limited to `**/*.css`
+  so bundlers can safely drop unused modules.
+- Split responsibilities: `esbuild` transpiles, `tsc` emits declaration files,
+  the Tailwind CLI builds the stylesheet.
+
+## Alternatives considered
+
+- **tsup** — great DX and the usual default, but `preserveModules` +
+  directive preservation were fiddlier to get right than driving Rollup
+  directly.
+- **A single bundled file** — simplest output, but destroys per-component
+  tree-shaking and makes correct `"use client"` placement much harder.
+- **Vite library mode** — capable, but oriented toward app bundling; less direct
+  control over per-module output than raw Rollup.
+
+## Consequences
+
+**Good**
+
+- Deep tree-shaking — importing `Button` doesn't drag in `Dialog`.
+- Correct RSC boundaries: client components stay client components downstream.
+- Clean, inspectable `dist` that mirrors `src`.
+
+**Trade-offs**
+
+- **No CJS output** — legacy `require()` consumers aren't supported. Acceptable
+  for a React 18/19-targeted, ESM-first library.
+- Three build steps (JS / types / CSS) instead of one all-in-one tool.

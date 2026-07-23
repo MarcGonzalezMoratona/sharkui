@@ -8,6 +8,13 @@ const meta = {
   component: Skeleton,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
+  argTypes: {
+    children: {
+      control: false,
+      description: "Optional content rendered inside the placeholder.",
+      table: { category: "Content" },
+    },
+  },
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;

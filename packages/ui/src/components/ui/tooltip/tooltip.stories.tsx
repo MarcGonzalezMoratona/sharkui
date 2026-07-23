@@ -16,6 +16,27 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    open: {
+      control: "boolean",
+      description: "Whether the tooltip is open (controlled).",
+      table: { category: "State" },
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Whether the tooltip is open by default (uncontrolled).",
+      table: { category: "State" },
+    },
+    onOpenChange: {
+      description: "Fired when the tooltip is opened or closed.",
+      table: { category: "Events" },
+    },
+    children: {
+      control: false,
+      description: "Trigger and content of the tooltip.",
+      table: { category: "Content" },
+    },
+  },
   decorators: [
     (Story) => (
       <TooltipProvider>

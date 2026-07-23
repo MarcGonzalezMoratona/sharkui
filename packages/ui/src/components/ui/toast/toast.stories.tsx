@@ -9,6 +9,32 @@ const meta = {
   component: Toaster,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
+  argTypes: {
+    position: {
+      control: "select",
+      options: [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right",
+        "top-center",
+        "bottom-center",
+      ],
+      description: "Screen corner where toasts are rendered.",
+      table: { category: "Appearance" },
+    },
+    theme: {
+      control: "select",
+      options: ["light", "dark", "system"],
+      description: "Color theme of the toasts.",
+      table: { category: "Appearance" },
+    },
+    richColors: {
+      control: "boolean",
+      description: "Applies richer, variant-specific colors to toasts.",
+      table: { category: "Appearance" },
+    },
+  },
 } satisfies Meta<typeof Toaster>;
 
 export default meta;

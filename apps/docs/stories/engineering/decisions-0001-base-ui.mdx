@@ -1,0 +1,55 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0001 · Base UI over Radix" />
+
+<Title>0001 · Base UI as the primitive layer</Title>
+
+**Status:** Accepted
+
+## Context
+
+Shark UI follows the shadcn model: unstyled, accessible primitives wrapped with
+Tailwind and [`cva`](https://cva.style/) to become the styled components that
+ship. That model needs a primitive layer to sit on. Historically shadcn built on
+**Radix UI**, but the accessibility-primitive landscape has shifted: the Radix
+core team and the MUI Base team converged on **Base UI**, a single actively
+developed successor, and shadcn now offers a Base UI track.
+
+The primitive layer is the one dependency that touches every component, so the
+choice compounds — accessibility, composition ergonomics, and long-term
+maintenance all ride on it.
+
+## Decision
+
+Depend on **`@base-ui/react`** as the sole primitive layer. Every interactive
+component (Dialog, Popover, Select, Dropdown, Tooltip, Field, …) wraps a Base UI
+part and adds styling through Tailwind + `cva`.
+
+## Alternatives considered
+
+- **Radix UI** — mature and battle-tested, but development has slowed as the
+  team's focus moved to Base UI; building on it means adopting the layer that is
+  being superseded.
+- **Headless UI** — smaller surface, split focus across React and Vue, missing
+  several primitives this system needs.
+- **Ark UI (Zag)** — powerful state-machine model, but a heavier mental model
+  and runtime than a component library of this size warrants.
+- **Hand-rolled primitives** — maximal control, but re-implementing focus
+  traps, typeahead, and ARIA wiring is exactly the accessibility risk a design
+  system exists to remove.
+
+## Consequences
+
+**Good**
+
+- A single, modern primitive dependency aligned with where the ecosystem (and
+  shadcn) is heading.
+- Consistent composition API across every component.
+- Accessibility — focus management, keyboard nav, ARIA — is owned by the
+  primitive, verified here by the a11y addon and play tests.
+
+**Trade-offs**
+
+- Smaller community and fewer copy-paste examples than Radix today.
+- Some parts are still stabilizing, so occasional API churn is expected.
+- Fewer community codemods / migration guides than the incumbent.

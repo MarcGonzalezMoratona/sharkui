@@ -43,6 +43,10 @@ function DialogContent({
   showCloseButton = true,
   ...props
 }: DialogPrimitive.Popup.Props & {
+  /**
+   * Whether to render the top-right close button.
+   * @default true
+   */
   showCloseButton?: boolean;
 }) {
   return (
@@ -93,6 +97,10 @@ function DialogFooter({
   children,
   ...props
 }: React.ComponentProps<"div"> & {
+  /**
+   * Whether to render a built-in close button in the footer.
+   * @default false
+   */
   showCloseButton?: boolean;
 }) {
   return (

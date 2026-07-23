@@ -1,0 +1,52 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0000 · Overview" />
+
+<Title>Architecture Decision Records</Title>
+
+This section documents the **technical decisions** behind Shark UI — not just
+_what_ the system does, but _why_ it was built this way, which alternatives were
+weighed, and what each choice costs.
+
+Each page is an **ADR** (Architecture Decision Record): a short, dated,
+immutable note capturing one decision at the moment it was made. It is the
+lightweight standard for recording architecture rationale, and it keeps the
+reasoning next to the code instead of in someone's head.
+
+## Format
+
+Every record follows the same shape:
+
+- **Status** — Accepted / Superseded / Deprecated.
+- **Context** — the forces at play: the problem, the constraints, what was true
+  when the call was made.
+- **Decision** — the choice, stated plainly.
+- **Alternatives considered** — the options that were rejected, and why.
+- **Consequences** — what this buys, and the trade-offs it accepts.
+
+An ADR is a snapshot. It is not edited to reflect later reality — if a decision
+changes, a new record supersedes the old one, so the history stays honest.
+
+## Records
+
+| #    | Decision                                                      | Status   |
+| ---- | ------------------------------------------------------------- | -------- |
+| 0001 | Base UI as the primitive layer (over Radix)                   | Accepted |
+| 0002 | Tailwind CSS v4 with CSS-first design tokens                  | Accepted |
+| 0003 | Headless library; the brand theme lives only in Storybook     | Accepted |
+| 0004 | A systematic OKLCH palette from one shared curve              | Accepted |
+| 0005 | ESM-only, per-module Rollup build with RSC directives         | Accepted |
+| 0006 | Two-tier testing: jsdom units + real-browser play tests       | Accepted |
+| 0007 | oxlint over ESLint                                            | Accepted |
+| 0008 | Changesets for versioning and the changelog                   | Accepted |
+| 0009 | A four-file component convention with a scaffolding generator | Accepted |
+
+Browse each record in the sidebar under **Engineering › Decisions**.
+
+## Adding a new record
+
+1. Copy the shape above into a new `decisions-NNNN-*.mdx` file in
+   `apps/docs/stories/engineering/`.
+2. Title it `Engineering/Decisions/NNNN · <short title>` — the numeric prefix
+   keeps the sidebar ordered.
+3. Add a row to the table on this page.

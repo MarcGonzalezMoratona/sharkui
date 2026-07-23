@@ -31,6 +31,18 @@ const meta = {
     layout: "padded",
   },
   tags: ["autodocs"],
+  argTypes: {
+    orientation: {
+      control: "select",
+      options: ["vertical", "horizontal", "responsive"],
+      description: "Layout orientation of the field and its control.",
+      table: { category: "Appearance" },
+    },
+    children: {
+      description: "Field label, control, description, and error content.",
+      table: { category: "Content" },
+    },
+  },
 } satisfies Meta<typeof Field>;
 
 export default meta;

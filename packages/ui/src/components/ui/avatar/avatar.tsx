@@ -8,6 +8,10 @@ function Avatar({
   size = "default",
   ...props
 }: AvatarPrimitive.Root.Props & {
+  /**
+   * Size of the avatar.
+   * @default "default"
+   */
   size?: "default" | "sm" | "lg";
 }) {
   return (

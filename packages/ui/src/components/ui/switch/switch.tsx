@@ -7,6 +7,10 @@ function Switch({
   size = "default",
   ...props
 }: SwitchPrimitive.Root.Props & {
+  /**
+   * Size of the switch.
+   * @default "default"
+   */
   size?: "sm" | "default";
 }) {
   return (

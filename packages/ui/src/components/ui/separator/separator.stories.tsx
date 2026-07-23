@@ -14,6 +14,8 @@ const meta = {
     orientation: {
       control: "radio",
       options: ["horizontal", "vertical"],
+      description: "Axis the separator is drawn along.",
+      table: { category: "Appearance" },
     },
   },
 } satisfies Meta<typeof Separator>;

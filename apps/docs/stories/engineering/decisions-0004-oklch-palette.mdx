@@ -1,0 +1,50 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0004 · Systematic OKLCH palette" />
+
+<Title>0004 · A systematic OKLCH palette from one shared curve</Title>
+
+**Status:** Accepted
+
+## Context
+
+The brand needs a full palette: brand families (primary, secondary, tertiary,
+neutral) plus status families (success, warning, error, info), each with an
+`50 → 950` shade ramp. Hand-picking eleven hex values per family — across eight
+families — is slow, hard to keep consistent, and impossible to re-tune.
+
+## Decision
+
+**Generate every ramp from one shared curve.** `apps/docs/stories/colors.ts`
+defines a single lightness map and a single chroma-fraction map, both keyed by
+shade step. A `scale(hue, chromaMax)` function applies that shared curve to a
+family; only the **hue** and the family's **peak chroma** differ between
+families. Everything is authored in **OKLCH**, whose perceptual uniformity is
+what makes a shared lightness curve read as consistent across hues.
+
+## Alternatives considered
+
+- **Hand-pick hex per shade** — full artistic control, but inconsistent between
+  families and painful to re-tune globally.
+- **Adopt Tailwind's default palette** — instant and consistent, but not
+  on-brand, and sRGB hex rather than OKLCH.
+- **A tool like Radix Colors or Adobe Leonardo** — solid output, but adds a
+  dependency / external step for what is a small, well-understood curve.
+
+## Consequences
+
+**Good**
+
+- The whole palette is visually coherent because every family shares one curve.
+- Re-hueing a family is a one-number change; re-tuning the system is editing one
+  curve.
+- The generation is documented and reproducible, and rendered live on the
+  **Foundations › Colors** page.
+
+**Trade-offs**
+
+- Algorithmic ramps still need occasional manual nudging at the extremes where
+  gamut clipping bites.
+- The palette is **documentation-only** — it is not wired into the shipped
+  `styles.css` tokens, so the generated palette and the shipped neutral tokens
+  can drift if not cross-checked.

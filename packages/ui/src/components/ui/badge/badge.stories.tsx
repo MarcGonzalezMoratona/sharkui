@@ -22,6 +22,17 @@ const meta = {
         "ghost",
         "link",
       ],
+      description: "Visual style of the badge.",
+      table: { category: "Appearance" },
+    },
+    children: {
+      control: "text",
+      description: "Badge label or content.",
+      table: { category: "Content" },
+    },
+    render: {
+      description: "Custom element to render the badge as.",
+      table: { category: "Content" },
     },
   },
   args: {

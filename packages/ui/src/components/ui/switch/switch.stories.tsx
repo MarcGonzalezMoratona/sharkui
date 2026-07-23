@@ -20,9 +20,28 @@ const meta = {
     size: {
       control: "select",
       options: ["sm", "default"],
+      description: "Size of the switch.",
+      table: { category: "Appearance" },
     },
-    defaultChecked: { control: "boolean" },
-    disabled: { control: "boolean" },
+    defaultChecked: {
+      control: "boolean",
+      description: "Initial checked state for uncontrolled usage.",
+      table: { category: "State" },
+    },
+    disabled: {
+      control: "boolean",
+      description: "Prevents interaction and dims the switch.",
+      table: { category: "State" },
+    },
+    checked: {
+      control: "boolean",
+      description: "Controlled checked state of the switch.",
+      table: { category: "State" },
+    },
+    onCheckedChange: {
+      description: "Fired when the checked state changes.",
+      table: { category: "Events" },
+    },
   },
   args: {
     size: "default",

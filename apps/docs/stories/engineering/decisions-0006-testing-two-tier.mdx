@@ -1,0 +1,50 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0006 · Two-tier testing" />
+
+<Title>0006 · Two-tier testing: jsdom units + real-browser play tests</Title>
+
+**Status:** Accepted
+
+## Context
+
+Components have two very different things to verify. Some are pure logic (does
+`cn()` merge classes correctly; does a variant map to the right classes) — cheap
+to assert and best run fast. Others are interaction and accessibility behavior
+(focus traps, keyboard nav, pointer, ARIA state) — which jsdom can only
+approximate, because it has no real layout or focus model.
+
+## Decision
+
+Run **two test tiers under one Vitest workspace** (`vitest.config.ts` composes
+two projects):
+
+- **Unit — jsdom.** `*.test.tsx` files use Testing Library in `jsdom` for logic
+  and rendering assertions. Fast, no browser.
+- **Interaction — real browser.** `*.stories.tsx` + `*.play.ts` run in headless
+  **Chromium** via `@storybook/addon-vitest` and the Playwright provider, so
+  stories double as interaction tests against a real engine. The **a11y addon**
+  runs in the same environment.
+
+## Alternatives considered
+
+- **jsdom only** — fast and simple, but silently misses real focus, layout, and
+  pointer behavior — exactly where accessible components break.
+- **Browser only** — most faithful, but slow and heavy for pure-logic assertions
+  that don't need a DOM engine.
+- **A separate Cypress/Playwright suite** — real browser coverage, but duplicate
+  test infrastructure and fixtures alongside the unit runner.
+
+## Consequences
+
+**Good**
+
+- The right engine for each kind of test — fast where it can be, faithful where
+  it must be.
+- Stories are written once and reused as interaction tests; no duplicate specs.
+- Accessibility checks run against a real browser, not an approximation.
+
+**Trade-offs**
+
+- CI must provision Playwright browser binaries for the browser project.
+- Two Vitest project configs to keep aligned.

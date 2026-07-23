@@ -18,11 +18,28 @@ function PopoverContent({
   side = "bottom",
   sideOffset = 4,
   ...props
-}: PopoverPrimitive.Popup.Props &
-  Pick<
-    PopoverPrimitive.Positioner.Props,
-    "align" | "alignOffset" | "side" | "sideOffset"
-  >) {
+}: PopoverPrimitive.Popup.Props & {
+  /**
+   * Alignment of the popup relative to the trigger.
+   * @default "center"
+   */
+  align?: PopoverPrimitive.Positioner.Props["align"];
+  /**
+   * Offset in px along the alignment axis.
+   * @default 0
+   */
+  alignOffset?: PopoverPrimitive.Positioner.Props["alignOffset"];
+  /**
+   * Preferred side of the trigger to render against.
+   * @default "bottom"
+   */
+  side?: PopoverPrimitive.Positioner.Props["side"];
+  /**
+   * Distance in px between popup and trigger.
+   * @default 4
+   */
+  sideOffset?: PopoverPrimitive.Positioner.Props["sideOffset"];
+}) {
   return (
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Positioner

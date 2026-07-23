@@ -15,7 +15,15 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   argTypes: {
-    value: { control: { type: "range", min: 0, max: 100, step: 1 } },
+    value: {
+      control: { type: "range", min: 0, max: 100, step: 1 },
+      description: "Current progress value; indeterminate when null.",
+      table: { category: "State" },
+    },
+    children: {
+      description: "Optional label and value content rendered above the track.",
+      table: { category: "Content" },
+    },
   },
   args: {
     value: 60,

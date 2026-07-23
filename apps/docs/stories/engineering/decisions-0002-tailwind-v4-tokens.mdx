@@ -1,0 +1,51 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0002 · Tailwind v4 CSS-first tokens" />
+
+<Title>0002 · Tailwind CSS v4 with CSS-first design tokens</Title>
+
+**Status:** Accepted
+
+## Context
+
+A design system needs design tokens — color, radius, spacing — that are themable
+(light/dark) and consumable both as Tailwind utilities and as raw CSS. Tailwind
+v4 changed how this is expressed: configuration moved out of a JavaScript file
+and into CSS via `@import "tailwindcss"`, `@theme`, and `@custom-variant`.
+
+## Decision
+
+Ship **no `tailwind.config.js`**. All configuration lives in
+`packages/ui/src/styles.css`:
+
+- Tokens are declared as **CSS custom properties** on `:root` and `.dark`
+  (`--background`, `--primary`, `--radius`, …).
+- `@theme inline` maps those variables onto Tailwind's color/radius scales, so
+  `bg-primary` and `--color-primary` resolve to the same token.
+- `@custom-variant dark (&:is(.dark *))` drives theming off a `.dark` class
+  rather than a media query, so the theme is controllable.
+- Every color is authored in **OKLCH** for perceptual consistency.
+
+## Alternatives considered
+
+- **Tailwind v3 + `tailwind.config.js`** — familiar, but tokens then live in two
+  places (JS config _and_ CSS variables), a dual source of truth to keep synced.
+- **CSS Modules / plain CSS** — full control, but loses the utility ergonomics
+  and token wiring that make the system fast to build with.
+- **vanilla-extract / Panda CSS** — type-safe tokens, but add a build-time layer
+  and a larger conceptual footprint than this system needs.
+
+## Consequences
+
+**Good**
+
+- One source of truth: tokens are CSS variables, and utilities reference them.
+- Runtime themeable — swapping a theme is remapping variables on a scope, which
+  is exactly what record 0003 (headless brand theme) relies on.
+- OKLCH gives even, predictable lightness steps across the palette.
+
+**Trade-offs**
+
+- Tailwind v4 is newer; less Stack Overflow coverage and some ecosystem plugins
+  still catching up.
+- Editor tooling and older references sometimes assume the v3 JS config.

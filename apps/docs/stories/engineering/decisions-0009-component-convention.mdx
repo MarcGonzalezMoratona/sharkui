@@ -1,0 +1,56 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0009 · Component convention" />
+
+<Title>0009 · A four-file component convention with a generator</Title>
+
+**Status:** Accepted
+
+## Context
+
+A design system lives or dies by consistency, and that includes the shape of the
+code, not just the UI. As the component count grows, ad-hoc file layouts drift,
+some components quietly ship without tests or stories, and barrel exports get
+forgotten. Authoring a new component should be low-friction and produce the same
+structure every time.
+
+## Decision
+
+Every component is a folder holding exactly **four files**:
+
+| File            | Responsibility                       |
+| --------------- | ------------------------------------ |
+| `x.tsx`         | the component and its `cva` variants |
+| `x.stories.tsx` | Storybook stories + `Meta`           |
+| `x.play.ts`     | interaction test (record 0006)       |
+| `x.test.tsx`    | jsdom unit test (record 0006)        |
+
+A generator — `pnpm gen:component <Name>` — scaffolds all four from templates
+(accepting any casing: `Avatar`, `avatar`, `avatar-group`, …) and
+**auto-registers the export** in `src/index.ts`, grouped by category. The rollup
+build (`0005`) then discovers each component folder automatically, so a new
+component needs no build-config changes.
+
+## Alternatives considered
+
+- **Ad-hoc per-component structure** — flexible, but drifts and makes the
+  codebase harder to scan and review.
+- **One file per component** (component + stories + tests colocated) — fewer
+  files, but mixes concerns and bloats each file.
+- **No generator** — one less script to maintain, but reintroduces the
+  boilerplate and the forgotten-export problem the convention exists to prevent.
+
+## Consequences
+
+**Good**
+
+- Predictable layout: every component looks the same and ships with stories and
+  both test tiers by default.
+- No forgotten barrel exports — the generator writes them.
+- Onboarding a new component is a single command.
+
+**Trade-offs**
+
+- Four files even for a trivial component.
+- The generator's templates are one more thing to keep current as conventions
+  evolve.

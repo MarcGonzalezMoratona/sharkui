@@ -23,11 +23,28 @@ function DropdownMenuContent({
   sideOffset = 4,
   className,
   ...props
-}: MenuPrimitive.Popup.Props &
-  Pick<
-    MenuPrimitive.Positioner.Props,
-    "align" | "alignOffset" | "side" | "sideOffset"
-  >) {
+}: MenuPrimitive.Popup.Props & {
+  /**
+   * Alignment of the popup relative to the trigger.
+   * @default "start"
+   */
+  align?: MenuPrimitive.Positioner.Props["align"];
+  /**
+   * Offset in px along the alignment axis.
+   * @default 0
+   */
+  alignOffset?: MenuPrimitive.Positioner.Props["alignOffset"];
+  /**
+   * Preferred side of the trigger to render against.
+   * @default "bottom"
+   */
+  side?: MenuPrimitive.Positioner.Props["side"];
+  /**
+   * Distance in px between popup and trigger.
+   * @default 4
+   */
+  sideOffset?: MenuPrimitive.Positioner.Props["sideOffset"];
+}) {
   return (
     <MenuPrimitive.Portal>
       <MenuPrimitive.Positioner
@@ -59,6 +76,9 @@ function DropdownMenuLabel({
   inset,
   ...props
 }: MenuPrimitive.GroupLabel.Props & {
+  /**
+   * Adds left padding to align the label with inset items.
+   */
   inset?: boolean;
 }) {
   return (
@@ -80,7 +100,14 @@ function DropdownMenuItem({
   variant = "default",
   ...props
 }: MenuPrimitive.Item.Props & {
+  /**
+   * Adds left padding to align the item with inset labels.
+   */
   inset?: boolean;
+  /**
+   * Visual style of the item.
+   * @default "default"
+   */
   variant?: "default" | "destructive";
 }) {
   return (
@@ -107,6 +134,9 @@ function DropdownMenuSubTrigger({
   children,
   ...props
 }: MenuPrimitive.SubmenuTrigger.Props & {
+  /**
+   * Adds left padding to align the trigger with inset items.
+   */
   inset?: boolean;
 }) {
   return (
@@ -156,6 +186,9 @@ function DropdownMenuCheckboxItem({
   inset,
   ...props
 }: MenuPrimitive.CheckboxItem.Props & {
+  /**
+   * Adds left padding to align the item with inset labels.
+   */
   inset?: boolean;
 }) {
   return (
@@ -197,6 +230,9 @@ function DropdownMenuRadioItem({
   inset,
   ...props
 }: MenuPrimitive.RadioItem.Props & {
+  /**
+   * Adds left padding to align the item with inset labels.
+   */
   inset?: boolean;
 }) {
   return (

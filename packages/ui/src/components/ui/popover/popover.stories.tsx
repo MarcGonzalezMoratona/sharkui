@@ -19,6 +19,27 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    open: {
+      control: "boolean",
+      description: "Whether the popover is open (controlled).",
+      table: { category: "State" },
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Whether the popover is open by default (uncontrolled).",
+      table: { category: "State" },
+    },
+    onOpenChange: {
+      description: "Fired when the popover is opened or closed.",
+      table: { category: "Events" },
+    },
+    children: {
+      control: false,
+      description: "Trigger and content of the popover.",
+      table: { category: "Content" },
+    },
+  },
 } satisfies Meta<typeof Popover>;
 
 export default meta;

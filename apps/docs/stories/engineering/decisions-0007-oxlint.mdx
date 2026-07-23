@@ -1,0 +1,47 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0007 · oxlint over ESLint" />
+
+<Title>0007 · oxlint over ESLint</Title>
+
+**Status:** Accepted
+
+## Context
+
+The codebase is small, modern, and TypeScript-first. It needs linting for real
+correctness rules (React hooks, export hygiene) without the config weight and
+runtime cost that a full ESLint + `typescript-eslint` setup brings to a project
+of this size. Formatting is a separate concern, already owned by Prettier.
+
+## Decision
+
+Use **oxlint** (the Rust-based linter from the Oxc project) with a deliberately
+minimal rule set in `.oxlintrc.json`:
+
+- `react/rules-of-hooks` — the one rule you cannot afford to get wrong.
+- `react/only-export-components` — keeps Fast Refresh and the barrel clean.
+
+Formatting stays with **Prettier**; linting and formatting don't overlap. The
+whole chain runs pre-commit via **husky + lint-staged**, with **commitlint**
+enforcing Conventional Commits (the input record 0008 and the changelog rely
+on).
+
+## Alternatives considered
+
+- **ESLint + typescript-eslint** — the richest rule ecosystem, but noticeably
+  slower and a much larger config surface than these two rules justify.
+- **Biome** — also fast and all-in-one (lint + format), but its React-specific
+  rule coverage was thinner than needed at the time of the decision.
+
+## Consequences
+
+**Good**
+
+- Near-instant lint runs, even in the pre-commit hook.
+- Tiny, readable config — the enabled rules _are_ the policy.
+- Clean separation: oxlint judges correctness, Prettier owns style.
+
+**Trade-offs**
+
+- A smaller rule catalog than ESLint; some niche plugins have no equivalent.
+- Newer tool, so occasional gaps versus the mature ESLint ecosystem.

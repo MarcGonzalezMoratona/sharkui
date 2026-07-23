@@ -24,6 +24,43 @@ const meta = {
     layout: "padded",
   },
   tags: ["autodocs"],
+  argTypes: {
+    value: {
+      description: "The controlled value of the select.",
+      table: { category: "State" },
+    },
+    defaultValue: {
+      description: "The uncontrolled initial value of the select.",
+      table: { category: "State" },
+    },
+    onValueChange: {
+      description: "Fired when the selected value changes.",
+      table: { category: "Events" },
+    },
+    open: {
+      control: "boolean",
+      description: "Whether the select popup is open.",
+      table: { category: "State" },
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Whether the select popup is initially open.",
+      table: { category: "State" },
+    },
+    onOpenChange: {
+      description: "Fired when the popup is opened or closed.",
+      table: { category: "Events" },
+    },
+    disabled: {
+      control: "boolean",
+      description: "Prevents interaction with the select.",
+      table: { category: "State" },
+    },
+    children: {
+      description: "Trigger and content of the select.",
+      table: { category: "Content" },
+    },
+  },
 } satisfies Meta<typeof Select>;
 
 export default meta;

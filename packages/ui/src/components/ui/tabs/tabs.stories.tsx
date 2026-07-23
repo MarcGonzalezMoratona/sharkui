@@ -26,6 +26,32 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    value: {
+      description:
+        "Value of the currently active tab. Use when the component is controlled.",
+      table: { category: "State" },
+    },
+    defaultValue: {
+      description:
+        "Value of the tab active by default. Use when the component is uncontrolled.",
+      table: { category: "State" },
+    },
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+      description: "Layout flow direction of the tabs.",
+      table: { category: "Appearance" },
+    },
+    onValueChange: {
+      description: "Fired when the active tab changes.",
+      table: { category: "Events" },
+    },
+    children: {
+      description: "Tabs list and panels.",
+      table: { category: "Content" },
+    },
+  },
 } satisfies Meta<typeof Tabs>;
 
 export default meta;

@@ -29,6 +29,13 @@ const meta = {
     size: {
       control: "select",
       options: ["default", "sm"],
+      description: "Internal spacing scale of the card.",
+      table: { category: "Appearance" },
+    },
+    children: {
+      control: "text",
+      description: "Card content, typically the Card* sub-components.",
+      table: { category: "Content" },
     },
   },
 } satisfies Meta<typeof Card>;

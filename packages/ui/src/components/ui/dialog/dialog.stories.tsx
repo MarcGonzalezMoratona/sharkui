@@ -26,6 +26,33 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    open: {
+      control: "boolean",
+      description: "Whether the dialog is open (controlled).",
+      table: { category: "State" },
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Whether the dialog is open by default (uncontrolled).",
+      table: { category: "State" },
+    },
+    modal: {
+      control: "boolean",
+      description:
+        "Whether the dialog traps focus and blocks interaction with the rest of the page.",
+      table: { category: "State" },
+    },
+    onOpenChange: {
+      description: "Fired when the dialog is opened or closed.",
+      table: { category: "Events" },
+    },
+    children: {
+      control: false,
+      description: "Trigger and content of the dialog.",
+      table: { category: "Content" },
+    },
+  },
 } satisfies Meta<typeof Dialog>;
 
 export default meta;

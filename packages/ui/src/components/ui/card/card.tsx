@@ -6,7 +6,13 @@ function Card({
   className,
   size = "default",
   ...props
-}: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
+}: React.ComponentProps<"div"> & {
+  /**
+   * Internal spacing scale of the card.
+   * @default "default"
+   */
+  size?: "default" | "sm";
+}) {
   return (
     <div
       data-slot="card"

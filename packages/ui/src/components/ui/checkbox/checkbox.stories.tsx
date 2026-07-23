@@ -17,8 +17,35 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    defaultChecked: { control: "boolean" },
-    disabled: { control: "boolean" },
+    defaultChecked: {
+      control: "boolean",
+      description: "Initial checked state for uncontrolled usage.",
+      table: { category: "State" },
+    },
+    disabled: {
+      control: "boolean",
+      description: "Prevents interaction and dims the checkbox.",
+      table: { category: "State" },
+    },
+    checked: {
+      control: "boolean",
+      description: "Controlled checked state of the checkbox.",
+      table: { category: "State" },
+    },
+    name: {
+      control: "text",
+      description: "Name submitted with the form data.",
+      table: { category: "State" },
+    },
+    required: {
+      control: "boolean",
+      description: "Marks the checkbox as required for form submission.",
+      table: { category: "State" },
+    },
+    onCheckedChange: {
+      description: "Fired when the checked state changes.",
+      table: { category: "Events" },
+    },
   },
 } satisfies Meta<typeof Checkbox>;
 

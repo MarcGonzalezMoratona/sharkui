@@ -35,7 +35,13 @@ function TabsList({
   className,
   variant = "default",
   ...props
-}: TabsPrimitive.List.Props & VariantProps<typeof tabsListVariants>) {
+}: TabsPrimitive.List.Props & {
+  /**
+   * Visual style of the tabs list.
+   * @default "default"
+   */
+  variant?: VariantProps<typeof tabsListVariants>["variant"];
+}) {
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"

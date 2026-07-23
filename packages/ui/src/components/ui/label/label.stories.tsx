@@ -11,6 +11,18 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    children: {
+      control: "text",
+      description: "Label text or content.",
+      table: { category: "Content" },
+    },
+    htmlFor: {
+      control: "text",
+      description: "Associates the label with a form control by its id.",
+      table: { category: "State" },
+    },
+  },
   args: {
     children: "Label",
   },

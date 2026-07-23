@@ -22,7 +22,13 @@ function FieldLegend({
   className,
   variant = "legend",
   ...props
-}: React.ComponentProps<"legend"> & { variant?: "legend" | "label" }) {
+}: React.ComponentProps<"legend"> & {
+  /**
+   * Visual style of the legend.
+   * @default "legend"
+   */
+  variant?: "legend" | "label";
+}) {
   return (
     <legend
       data-slot="field-legend"
@@ -71,7 +77,13 @@ function Field({
   className,
   orientation = "vertical",
   ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof fieldVariants>) {
+}: React.ComponentProps<"div"> & {
+  /**
+   * Layout orientation of the field and its control.
+   * @default "vertical"
+   */
+  orientation?: VariantProps<typeof fieldVariants>["orientation"];
+}) {
   return (
     <div
       role="group"
@@ -146,6 +158,9 @@ function FieldSeparator({
   className,
   ...props
 }: React.ComponentProps<"div"> & {
+  /**
+   * Optional label rendered in the middle of the separator.
+   */
   children?: React.ReactNode;
 }) {
   return (
@@ -177,6 +192,9 @@ function FieldError({
   errors,
   ...props
 }: React.ComponentProps<"div"> & {
+  /**
+   * Validation errors to render; deduplicated by message.
+   */
   errors?: Array<{ message?: string } | undefined>;
 }) {
   const content = useMemo(() => {

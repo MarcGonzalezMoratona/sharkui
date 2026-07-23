@@ -52,7 +52,13 @@ const preview: Preview = {
     options: {
       storySort: {
         method: "alphabetical",
-        order: ["Introduction", "Foundations", "*"],
+        order: [
+          "Introduction",
+          "Foundations",
+          "Engineering",
+          "Components",
+          "*",
+        ],
       },
     },
 

@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import remarkGfm from "remark-gfm";
 
 const config: StorybookConfig = {
   stories: [
@@ -10,7 +11,18 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-vitest",
     "@storybook/addon-a11y",
-    "@storybook/addon-docs",
+    {
+      // Enable GitHub-Flavored Markdown (tables, strikethrough, task lists) in
+      // MDX docs — Storybook doesn't ship remark-gfm by default.
+      name: "@storybook/addon-docs",
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
     "@storybook/addon-themes",
     "storybook-addon-pseudo-states",
   ],

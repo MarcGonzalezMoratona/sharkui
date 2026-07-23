@@ -1,0 +1,53 @@
+import { Meta, Title } from "@storybook/addon-docs/blocks";
+
+<Meta title="Engineering/Decisions/0003 · Headless brand theme" />
+
+<Title>0003 · Headless library; the brand theme lives only in Storybook</Title>
+
+**Status:** Accepted
+
+## Context
+
+There is a tension in a design-system portfolio. To _show well_, it wants a
+distinctive brand identity — a teal-led palette, opinionated surfaces. To be
+_useful_ as a library, it must not force those opinions on consumers, who will
+have their own brand. Shipping brand colors in the package makes every consumer
+fight the defaults.
+
+## Decision
+
+Keep the **published package headless**. `dist` ships only the neutral shadcn
+token set. The brand identity is a **Storybook-only overlay**:
+
+- A `withBrand` decorator in `.storybook/preview.tsx` wraps a story in a
+  `.branded` scope when the toolbar's **Brand** global is set to `branded`.
+- `.storybook/branded.css` re-maps the semantic CSS variables
+  (`--primary`, `--background`, …) _only_ inside `.branded`.
+
+Because the brand only remaps variables inside a Storybook wrapper, nothing
+brand-specific ever enters the published tokens.
+
+## Alternatives considered
+
+- **Ship the brand in the package** — best-looking defaults out of the box, but
+  consumers must override tokens to de-brand it; wrong trade for a library.
+- **A separate `@marcgm/sharkui-theme` package** — clean separation, but more
+  surface to version and publish than a portfolio needs.
+- **Document overrides only, no live preview** — keeps the package clean but
+  loses the ability to _demonstrate_ a full brand in the docs.
+
+## Consequences
+
+**Good**
+
+- Consumers theme freely by remapping the same variables — the CSS-first token
+  contract from record 0002.
+- The portfolio still shows a complete, opinionated brand.
+- Clean line between "what's shipped" and "what's previewed."
+
+**Trade-offs**
+
+- `branded.css` must be kept in sync by hand with the token contract; a new
+  semantic variable means updating the overlay too.
+- Two color realities (neutral shipped vs. branded preview) to hold in mind when
+  reasoning about a component's appearance.

@@ -32,6 +32,10 @@ function SelectTrigger({
   children,
   ...props
 }: SelectPrimitive.Trigger.Props & {
+  /**
+   * Size of the trigger.
+   * @default "default"
+   */
   size?: "sm" | "default";
 }) {
   return (
@@ -63,11 +67,33 @@ function SelectContent({
   alignOffset = 0,
   alignItemWithTrigger = true,
   ...props
-}: SelectPrimitive.Popup.Props &
-  Pick<
-    SelectPrimitive.Positioner.Props,
-    "align" | "alignOffset" | "side" | "sideOffset" | "alignItemWithTrigger"
-  >) {
+}: SelectPrimitive.Popup.Props & {
+  /**
+   * Preferred side of the trigger to render against.
+   * @default "bottom"
+   */
+  side?: SelectPrimitive.Positioner.Props["side"];
+  /**
+   * Distance in px between popup and trigger.
+   * @default 4
+   */
+  sideOffset?: SelectPrimitive.Positioner.Props["sideOffset"];
+  /**
+   * Alignment of the popup relative to the trigger.
+   * @default "center"
+   */
+  align?: SelectPrimitive.Positioner.Props["align"];
+  /**
+   * Offset in px along the alignment axis.
+   * @default 0
+   */
+  alignOffset?: SelectPrimitive.Positioner.Props["alignOffset"];
+  /**
+   * Whether to align the selected item with the trigger.
+   * @default true
+   */
+  alignItemWithTrigger?: SelectPrimitive.Positioner.Props["alignItemWithTrigger"];
+}) {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Positioner

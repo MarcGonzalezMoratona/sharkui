@@ -41,7 +41,15 @@ function SheetContent({
   showCloseButton = true,
   ...props
 }: SheetPrimitive.Popup.Props & {
+  /**
+   * Edge of the viewport the sheet slides in from.
+   * @default "right"
+   */
   side?: "top" | "right" | "bottom" | "left";
+  /**
+   * Whether to render the built-in close button.
+   * @default true
+   */
   showCloseButton?: boolean;
 }) {
   return (

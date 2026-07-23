@@ -27,6 +27,13 @@ const meta = {
     size: {
       control: "select",
       options: ["default", "sm", "lg"],
+      description: "Size of the avatar.",
+      table: { category: "Appearance" },
+    },
+    children: {
+      control: "text",
+      description: "Avatar content, typically AvatarImage and AvatarFallback.",
+      table: { category: "Content" },
     },
   },
 } satisfies Meta<typeof Avatar>;

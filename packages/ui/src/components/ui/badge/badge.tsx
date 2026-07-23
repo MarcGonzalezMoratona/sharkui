@@ -34,7 +34,13 @@ function Badge({
   variant = "default",
   render,
   ...props
-}: useRender.ComponentProps<"span"> & VariantProps<typeof badgeVariants>) {
+}: useRender.ComponentProps<"span"> & {
+  /**
+   * Visual style of the badge.
+   * @default "default"
+   */
+  variant?: VariantProps<typeof badgeVariants>["variant"];
+}) {
   return useRender({
     defaultTagName: "span",
     props: mergeProps<"span">(

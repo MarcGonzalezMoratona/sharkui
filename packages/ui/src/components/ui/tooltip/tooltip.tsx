@@ -33,11 +33,28 @@ function TooltipContent({
   alignOffset = 0,
   children,
   ...props
-}: TooltipPrimitive.Popup.Props &
-  Pick<
-    TooltipPrimitive.Positioner.Props,
-    "align" | "alignOffset" | "side" | "sideOffset"
-  >) {
+}: TooltipPrimitive.Popup.Props & {
+  /**
+   * Preferred side of the trigger to render against.
+   * @default "top"
+   */
+  side?: TooltipPrimitive.Positioner.Props["side"];
+  /**
+   * Distance in px between popup and trigger.
+   * @default 4
+   */
+  sideOffset?: TooltipPrimitive.Positioner.Props["sideOffset"];
+  /**
+   * Alignment of the popup relative to the trigger.
+   * @default "center"
+   */
+  align?: TooltipPrimitive.Positioner.Props["align"];
+  /**
+   * Offset in px along the alignment axis.
+   * @default 0
+   */
+  alignOffset?: TooltipPrimitive.Positioner.Props["alignOffset"];
+}) {
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Positioner

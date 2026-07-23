@@ -22,12 +22,29 @@ const meta = {
         "destructive",
         "link",
       ],
+      description: "Visual style of the button.",
+      table: { category: "Appearance" },
     },
     size: {
       control: "select",
       options: ["default", "xs", "sm", "lg"],
+      description: "Size of the button.",
+      table: { category: "Appearance" },
     },
-    disabled: { control: "boolean" },
+    disabled: {
+      control: "boolean",
+      description: "Prevents interaction and dims the button.",
+      table: { category: "State" },
+    },
+    children: {
+      control: "text",
+      description: "Button label or content.",
+      table: { category: "Content" },
+    },
+    onClick: {
+      description: "Fired when the button is clicked.",
+      table: { category: "Events" },
+    },
   },
   args: {
     children: "Button",

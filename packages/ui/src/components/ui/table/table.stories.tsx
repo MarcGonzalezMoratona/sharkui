@@ -19,6 +19,13 @@ const meta = {
     layout: "padded",
   },
   tags: ["autodocs"],
+  argTypes: {
+    children: {
+      control: false,
+      description: "Table content, typically the Table* sub-components.",
+      table: { category: "Content" },
+    },
+  },
 } satisfies Meta<typeof Table>;
 
 export default meta;

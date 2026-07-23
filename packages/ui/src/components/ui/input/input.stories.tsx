@@ -20,9 +20,43 @@ const meta = {
     type: {
       control: "select",
       options: ["text", "email", "password", "number", "search", "file"],
+      description: "HTML input type that determines the expected value format.",
+      table: { category: "State" },
     },
-    placeholder: { control: "text" },
-    disabled: { control: "boolean" },
+    placeholder: {
+      control: "text",
+      description: "Hint text shown when the input is empty.",
+      table: { category: "Content" },
+    },
+    disabled: {
+      control: "boolean",
+      description: "Prevents interaction and dims the input.",
+      table: { category: "State" },
+    },
+    value: {
+      control: "text",
+      description: "Controlled value of the input.",
+      table: { category: "State" },
+    },
+    name: {
+      control: "text",
+      description: "Name submitted with the form data.",
+      table: { category: "State" },
+    },
+    required: {
+      control: "boolean",
+      description: "Marks the input as required for form submission.",
+      table: { category: "State" },
+    },
+    readOnly: {
+      control: "boolean",
+      description: "Makes the value non-editable while still focusable.",
+      table: { category: "State" },
+    },
+    onChange: {
+      description: "Fired when the input value changes.",
+      table: { category: "Events" },
+    },
   },
   args: {
     type: "text",

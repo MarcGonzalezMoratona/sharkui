@@ -159,6 +159,31 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    open: {
+      control: "boolean",
+      description: "Whether the menu is open.",
+      table: { category: "State" },
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Whether the menu is initially open.",
+      table: { category: "State" },
+    },
+    onOpenChange: {
+      description: "Fired when the menu is opened or closed.",
+      table: { category: "Events" },
+    },
+    modal: {
+      control: "boolean",
+      description: "Whether the menu enters a modal state when open.",
+      table: { category: "State" },
+    },
+    children: {
+      description: "Trigger and content of the menu.",
+      table: { category: "Content" },
+    },
+  },
 } satisfies Meta<typeof DropdownMenu>;
 
 export default meta;
